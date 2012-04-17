@@ -18,6 +18,8 @@ namespace _3DTestGame
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        public Camera camera;
+        ModelManager mm;
 
         public ISTestGame()
         {
@@ -34,6 +36,14 @@ namespace _3DTestGame
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+
+           
+            this.camera = new Camera(this, new Vector3(10, 10, 10), Vector3.Zero, Vector3.Up);
+            this.mm = new ModelManager(this);
+            Components.Add(this.camera);
+            Components.Add(this.mm);    
+
+            Console.WriteLine("Inited");
 
             base.Initialize();
         }
@@ -82,7 +92,6 @@ namespace _3DTestGame
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);

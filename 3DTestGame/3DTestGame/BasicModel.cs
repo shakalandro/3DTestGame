@@ -19,14 +19,33 @@ namespace _3DTestGame
         public BasicModel(Model m)
         {
             this.model = m;
+            Console.WriteLine("Got into BasicModel");
         }
-        public virtual void update()
+        public virtual void Update()
         {
 
         }
-        public void draw(Camera camera)
+        public void Draw(Camera camera)
         {
-            
+            Matrix[] transforms = new Matrix[model.Bones.Count];
+            model.CopyAbsoluteBoneTransformsTo(transforms);
+            Console.WriteLine(model.Meshes.Count);
+            foreach (ModelMesh mesh in model.Meshes)
+            {
+                foreach (BasicEffect be in mesh.Effects)
+                {
+                    be.EnableDefaultLighting();
+                    be.Projection = camera.projection;
+                    be.View = camera.view;
+                    be.World = GetWorld() * mesh.ParentBone.Transform;
+                }
+                mesh.Draw();
+            }
+        }
+
+        public virtual Matrix GetWorld()
+        {
+            return world;
         }
     }
 }
