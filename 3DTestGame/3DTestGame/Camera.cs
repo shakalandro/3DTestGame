@@ -18,26 +18,33 @@ namespace _3DTestGame
     public class Camera : Microsoft.Xna.Framework.GameComponent
     {
 
-        public Matrix view
-        {
-            get;
-            protected set;
-        }
-        public Matrix projection
-        {
-            get;
-            protected set;
-        }
+        public Matrix view { get; protected set; }
+        public Matrix projection { get; protected set; }
+        public Vector3 pos;
+        public Vector3 dir;
+        public Vector3 up;
+        public readonly float moveSpeed = 0.01f;
+        public readonly float rotateSpeed = 0.01f;
 
-        public Camera(Game game, Vector3 pos, Vector3 target, Vector3 up)
+        public UserInput input;
+
+        public Camera(Game game, Vector3 pos, Vector3 dir, Vector3 up)
             : base(game)
         {
-            this.view = Matrix.CreateLookAt(pos, target, up);
+            this.pos = pos;
+            this.dir = dir;
+            this.dir.Normalize();
+            this.up = up;
+            float aspectRatio = Game.Window.ClientBounds.Width / Game.Window.ClientBounds.Height;
             this.projection = Matrix.CreatePerspectiveFieldOfView(
-                MathHelper.PiOver4,
-                Game.Window.ClientBounds.Width / Game.Window.ClientBounds.Height,
-                1,
-                100);
+                MathHelper.PiOver4, aspectRatio, 1, 100);
+            CreateLookAt();
+            this.input = ((ISTestGame)game).input;
+        }
+
+        private void CreateLookAt()
+        {
+            view = Matrix.CreateLookAt(pos, pos + dir, up);
         }
 
         /// <summary>
@@ -46,8 +53,6 @@ namespace _3DTestGame
         /// </summary>
         public override void Initialize()
         {
-            // TODO: Add your initialization code here
-
             base.Initialize();
         }
 
@@ -57,8 +62,47 @@ namespace _3DTestGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Update(GameTime gameTime)
         {
-            // TODO: Add your update code here
-
+            // Move the camera using WASD and QE for forward and backward
+            if (input.up())
+            {
+                pos += up * moveSpeed;
+            } else if (input.down())
+            {
+                pos -= up * moveSpeed;
+            }
+            if (input.left())
+            {
+                pos += Vector3.Cross(up, dir) * moveSpeed;
+            } else if (input.right()) 
+            {
+                pos -= Vector3.Cross(up, dir) * moveSpeed;
+            }
+            if (input.forward())
+            {
+                pos += dir * moveSpeed;
+            }
+            else if (input.backward())
+            {
+                pos -= dir * moveSpeed;
+            }
+            // Rotate the camera using the mouse
+            if (input.up3())
+            {
+                dir = Vector3.Transform(dir, Matrix.CreateFromAxisAngle(Vector3.Cross(up, dir), -rotateSpeed));
+            }
+            else if (input.down3())
+            {
+                dir = Vector3.Transform(dir, Matrix.CreateFromAxisAngle(Vector3.Cross(up, dir), rotateSpeed));
+            }
+            if (input.left3())
+            {
+                dir = Vector3.Transform(dir, Matrix.CreateFromAxisAngle(up, rotateSpeed));
+            }
+            else if (input.right3())
+            {
+                dir = Vector3.Transform(dir, Matrix.CreateFromAxisAngle(up, -rotateSpeed));
+            }
+            CreateLookAt();
             base.Update(gameTime);
         }
     }

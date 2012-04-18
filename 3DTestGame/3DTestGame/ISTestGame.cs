@@ -20,6 +20,7 @@ namespace _3DTestGame
         SpriteBatch spriteBatch;
         public Camera camera;
         ModelManager mm;
+        public UserInput input;
 
         public ISTestGame()
         {
@@ -35,15 +36,18 @@ namespace _3DTestGame
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-
-           
-            this.camera = new Camera(this, new Vector3(10, 10, 10), Vector3.Zero, Vector3.Up);
             this.mm = new ModelManager(this);
+            this.input = new UserInput(this);
+            this.camera = new Camera(this, new Vector3(-1.62f, 2.99f, 6.26f),
+                new Vector3(0.33f, -0.23f, -0.90f), Vector3.Up);
+            Components.Add(this.input);
             Components.Add(this.camera);
-            Components.Add(this.mm);    
+            Components.Add(this.mm);
 
-            Console.WriteLine("Inited");
+            // Turn off backface culling for now
+            //RasterizerState rs = new RasterizerState();
+            //rs.CullMode = CullMode.None;
+            //GraphicsDevice.RasterizerState = rs;
 
             base.Initialize();
         }

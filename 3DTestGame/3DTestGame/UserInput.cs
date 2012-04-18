@@ -7,21 +7,17 @@ using Microsoft.Xna.Framework;
 
 namespace _3DTestGame
 {
-    class UserInput : Microsoft.Xna.Framework.GameComponent
+    public class UserInput : Microsoft.Xna.Framework.GameComponent
     {
-        public readonly double MOUSE_SENSITIVITY = 10;
+        public readonly double MOUSE_SENSITIVITY = 5;
 
-        public KeyboardState keyState {
-            get;
-            protected set;
-        }
+        public KeyboardState keyState { get; protected set; }
 
-        public MouseState mouseState {
-            get;
-            protected set;
-        }
+        public MouseState mouseState { get; protected set; }
 
         private MouseState prevMouseState;
+
+        public UserInput(Game game) : base(game) {}
 
         /// <summary>
         /// Allows the game component to perform any initialization it needs to before starting
@@ -65,6 +61,14 @@ namespace _3DTestGame
         {
             return keyState.IsKeyDown(Keys.D);
         }
+        public Boolean forward()
+        {
+            return keyState.IsKeyDown(Keys.Q);
+        }
+        public Boolean backward()
+        {
+            return keyState.IsKeyDown(Keys.E);
+        }
 
         public Boolean up2()
         {
@@ -84,6 +88,26 @@ namespace _3DTestGame
         public Boolean right2()
         {
             return (mouseState.Y - prevMouseState.Y) > MOUSE_SENSITIVITY;
+        }
+
+        public Boolean up3()
+        {
+            return keyState.IsKeyDown(Keys.Up);
+        }
+
+        public Boolean down3()
+        {
+            return keyState.IsKeyDown(Keys.Down);
+        }
+
+        public Boolean left3()
+        {
+            return keyState.IsKeyDown(Keys.Left);
+        }
+
+        public Boolean right3()
+        {
+            return keyState.IsKeyDown(Keys.Right);
         }
     }
 }

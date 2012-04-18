@@ -10,16 +10,12 @@ namespace _3DTestGame
 {
     class BasicModel
     {
-        public Model model {
-            get;
-            protected set;
-        }
+        public Model model { get; protected set; }
         protected Matrix world = Matrix.Identity;
 
         public BasicModel(Model m)
         {
             this.model = m;
-            Console.WriteLine("Got into BasicModel");
         }
         public virtual void Update()
         {
@@ -29,7 +25,6 @@ namespace _3DTestGame
         {
             Matrix[] transforms = new Matrix[model.Bones.Count];
             model.CopyAbsoluteBoneTransformsTo(transforms);
-            Console.WriteLine(model.Meshes.Count);
             foreach (ModelMesh mesh in model.Meshes)
             {
                 foreach (BasicEffect be in mesh.Effects)
