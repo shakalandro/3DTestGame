@@ -1,1 +1,2 @@
 C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGameContent\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Malagos\Desktop\3DTestGame2\3DTestGame\3DTestGame\3DTestGameContent\obj\x86\Debug\ResolveAssemblyReference.cache

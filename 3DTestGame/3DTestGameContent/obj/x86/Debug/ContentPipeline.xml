@@ -7,11 +7,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\terrain2.xnb</Output>
-      <Time>2012-04-11T11:03:31.721-07:00</Time>
+      <Output>C:\Users\Malagos\Desktop\3DTestGame2\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\terrain2.xnb</Output>
+      <Time>2012-04-24T21:48:55.2479611-07:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\terrain2_0.xml</Key>
-        <Value>2012-04-12T16:44:20.279-07:00</Value>
+        <Value>2012-04-24T21:50:00.162674-07:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -19,7 +19,7 @@
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\terrain2_0.xml</Output>
-      <Time>2012-04-11T11:03:31.721-07:00</Time>
+      <Time>2012-04-24T21:48:55.2479611-07:00</Time>
     </Item>
     <Item>
       <Source>Models\fern.fbx</Source>
@@ -47,39 +47,39 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGameContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGameContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Malagos\Desktop\3DTestGame2\3DTestGame\3DTestGame\3DTestGameContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Malagos\Desktop\3DTestGame2\3DTestGame\3DTestGame\3DTestGame\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Malagos\Desktop\3DTestGame2\3DTestGame\3DTestGame\3DTestGameContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Malagos\Desktop\3DTestGame2\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
         <Value>2010-08-23T12:41:18-07:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
         <Value>2010-08-23T12:41:18-07:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
         <Value>2010-08-23T12:41:18-07:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
         <Value>2010-08-23T12:41:18-07:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
         <Value>2010-08-23T12:41:18-07:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
         <Value>2010-08-23T12:41:18-07:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2012-04-10T03:51:39.7716-07:00</Value>
+        <Value>2012-04-12T22:01:03.6303933-07:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
