@@ -1,5 +1,3 @@
-*.suo
-*.sln
 *.contentproj
 *cachefile*
 3DTestGame/3DTestGame/bin/*
