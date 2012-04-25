@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace _3DTestGame
 {
-    class BasicModel
+    public class BasicModel
     {
         public Model model { get; protected set; }
         protected Matrix world = Matrix.Identity;
@@ -17,11 +17,8 @@ namespace _3DTestGame
         {
             this.model = m;
         }
-        public virtual void Update()
-        {
-
-        }
-        public void Draw(Camera camera)
+        public virtual void Update() {}
+        public virtual void Draw(Camera camera)
         {
             Matrix[] transforms = new Matrix[model.Bones.Count];
             model.CopyAbsoluteBoneTransformsTo(transforms);

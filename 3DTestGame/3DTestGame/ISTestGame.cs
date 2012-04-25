@@ -8,6 +8,9 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using JigLibX.Physics;
+using JigLibX.Collision;
+using JigLibX.Geometry;
 
 namespace _3DTestGame
 {
@@ -21,6 +24,7 @@ namespace _3DTestGame
         public Camera camera;
         ModelManager mm;
         public UserInput input;
+        public PhysicsSystem phys;
 
         public ISTestGame()
         {
@@ -36,6 +40,8 @@ namespace _3DTestGame
         /// </summary>
         protected override void Initialize()
         {
+            this.phys = new PhysicsSystem();
+            this.phys.CollisionSystem = new CollisionSystemSAP();
             this.mm = new ModelManager(this);
             this.input = new UserInput(this);
             this.camera = new Camera(this, new Vector3(-1.62f, 2.99f, 6.26f),
@@ -84,7 +90,8 @@ namespace _3DTestGame
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            // TODO: Add your update logic here
+            float timeStep = (float)gameTime.ElapsedGameTime.Ticks / TimeSpan.TicksPerSecond;
+            PhysicsSystem.CurrentPhysicsSystem.Integrate(timeStep);
 
             base.Update(gameTime);
         }

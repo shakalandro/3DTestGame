@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="JigLibX">
+</Property><Property Name="Solution File" Value="C:\Users\roy\Code\Projects\3DTestGame\lib\JigLibX 0.3.1\JigLibX.sln">
+</Property><Property Name="Date" Value="Wednesday, April 25, 2012">
+</Property><Property Name="Time" Value="2:35 AM">
+</Property><Property Name="Solution" Value="JigLibX">
+</Property><Property Name="Solution File" Value="C:\Users\roy\Code\Projects\3DTestGame\lib\JigLibX 0.3.1\JigLibX.sln">
+</Property><Property Name="Date" Value="Wednesday, April 25, 2012">
+</Property><Property Name="Time" Value="2:35:48 AM">
+</Property></Properties><Event ErrorLevel="0" Project="JigLibX" Source="JigLibX\JigLibX.csproj" Description="Upgraded XNA Game Studio project to XNA Framework 4.0.">
+</Event><Event ErrorLevel="0" Project="JigLibX" Source="JigLibX\JigLibX.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="JigLibX" Source="JigLibX\JigLibX.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="JigLibGame" Source="JigLibGame\JigLibGame.csproj" Description="Upgraded XNA Game Studio project to XNA Framework 4.0.">
+</Event><Event ErrorLevel="0" Project="JigLibGame" Source="JigLibGame\JigLibGame.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="JigLibGame" Source="JigLibGame\JigLibGame.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="JigLibX.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="JigLibX.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="JigLibX" Source="JigLibX\JigLibX.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="JigLibX" Source="JigLibX\JigLibX.csproj" Description="Upgraded XNA Framework references to XNA Framework 4.0.">
+</Event><Event ErrorLevel="0" Project="JigLibX" Source="Content\Content.contentproj" Description="Upgrade of Library project 'JigLibX' removed a reference to the empty Content Project 'C:\Users\roy\Code\Projects\3DTestGame\lib\JigLibX 0.3.1\JigLibX\Content\Content.contentproj'.">
+</Event><Event ErrorLevel="0" Project="JigLibGame" Source="JigLibGame\JigLibGame.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="JigLibGame" Source="JigLibGame\JigLibGame.csproj" Description="Upgraded XNA Framework references to XNA Framework 4.0.">
+</Event><Event ErrorLevel="0" Project="JigLibGameContent" Source="JigLibGame\Content\JigLibGameContent.contentproj" Description="Upgraded XNA Game Studio nested content projects to XNA Framework 4.0 and promoted to sibling project.">
+</Event></UpgradeLog>

@@ -60,6 +60,9 @@
     <XnaCompressContent>true</XnaCompressContent>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="JigLibX">
+      <HintPath>..\..\lib\JigLibX 0.3.1\JigLibX\bin\x86\Debug\JigLibX.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
       <Private>False</Private>
     </Reference>
@@ -110,6 +113,7 @@
     <Compile Include="BasicModel.cs" />
     <Compile Include="Camera.cs" />
     <Compile Include="ModelManager.cs" />
+    <Compile Include="PhysicalModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ISTestGame.cs" />

@@ -1,0 +1,5 @@
+C:\Codeplex\JigLibX BETA\HeightmapProcessor\HeightmapProcessor\bin\x86\Debug\HeightmapProcessor.dll
+C:\Codeplex\JigLibX BETA\HeightmapProcessor\HeightmapProcessor\bin\x86\Debug\HeightmapProcessor.pdb
+C:\Codeplex\JigLibX BETA\HeightmapProcessor\HeightmapProcessor\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Codeplex\JigLibX BETA\HeightmapProcessor\HeightmapProcessor\obj\x86\Debug\HeightmapProcessor.dll
+C:\Codeplex\JigLibX BETA\HeightmapProcessor\HeightmapProcessor\obj\x86\Debug\HeightmapProcessor.pdb

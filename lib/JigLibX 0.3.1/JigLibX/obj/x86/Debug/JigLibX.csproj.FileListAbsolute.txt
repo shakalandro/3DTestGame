@@ -1,0 +1,6 @@
+C:\Users\roy\Code\Projects\3DTestGame\lib\JigLibX 0.3.1\JigLibX\bin\x86\Debug\JigLibX.dll
+C:\Users\roy\Code\Projects\3DTestGame\lib\JigLibX 0.3.1\JigLibX\bin\x86\Debug\JigLibX.pdb
+C:\Users\roy\Code\Projects\3DTestGame\lib\JigLibX 0.3.1\JigLibX\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\roy\Code\Projects\3DTestGame\lib\JigLibX 0.3.1\JigLibX\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\roy\Code\Projects\3DTestGame\lib\JigLibX 0.3.1\JigLibX\obj\x86\Debug\JigLibX.dll
+C:\Users\roy\Code\Projects\3DTestGame\lib\JigLibX 0.3.1\JigLibX\obj\x86\Debug\JigLibX.pdb

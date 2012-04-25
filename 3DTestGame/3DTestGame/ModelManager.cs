@@ -42,6 +42,7 @@ namespace _3DTestGame
         {
             Console.WriteLine("About to add");
             models.Add(new BasicModel(Game.Content.Load<Model>(@"Models/terrain2")));
+            models.Add(new PhysicalModel(Game.Content.Load<Model>(@"Models/fern"), new Vector3(1, 1, 1), new Vector3(0.2f,0.2f,0.2f), true));
             base.LoadContent();
         }
 
