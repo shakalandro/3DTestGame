@@ -11,6 +11,8 @@ using Microsoft.Xna.Framework.Media;
 using JigLibX.Physics;
 using JigLibX.Collision;
 using JigLibX.Geometry;
+using JigLibX.Utils;
+using JigLibX.Math;
 
 namespace _3DTestGame
 {
@@ -25,6 +27,7 @@ namespace _3DTestGame
         ModelManager mm;
         public UserInput input;
         public PhysicsSystem phys;
+        public DebugDrawer physDebug;
 
         public ISTestGame()
         {
@@ -40,14 +43,18 @@ namespace _3DTestGame
         /// </summary>
         protected override void Initialize()
         {
+            this.IsMouseVisible = true;
             this.phys = new PhysicsSystem();
             this.phys.CollisionSystem = new CollisionSystemSAP();
-            this.mm = new ModelManager(this);
             this.input = new UserInput(this);
-            this.camera = new Camera(this, new Vector3(-1.62f, 2.99f, 6.26f),
-                new Vector3(0.33f, -0.23f, -0.90f), Vector3.Up);
+            this.camera = new Camera(this, new Vector3(10f, 10f, 10f),
+                new Vector3(-1f, -1f, -1f), Vector3.Up);
+            this.physDebug = new DebugDrawer(this, this.camera);
+            this.physDebug.Enabled = true;
+            this.mm = new ModelManager(this);
             Components.Add(this.input);
             Components.Add(this.camera);
+            Components.Add(this.physDebug);
             Components.Add(this.mm);
 
             // Turn off backface culling for now

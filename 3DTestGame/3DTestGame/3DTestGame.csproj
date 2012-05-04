@@ -111,7 +111,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BasicModel.cs" />
+    <Compile Include="BoundingSphereRenderer.cs" />
     <Compile Include="Camera.cs" />
+    <Compile Include="DebugDrawer.cs" />
+    <Compile Include="MobileModel.cs" />
     <Compile Include="ModelManager.cs" />
     <Compile Include="PhysicalModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

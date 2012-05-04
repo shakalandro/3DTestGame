@@ -11,6 +11,8 @@ namespace _3DTestGame
 {
     public class BasicModel
     {
+        public static BasicModel selected;
+
         public Model model { get; protected set; }
         protected Matrix world = Matrix.Identity;
         public Boolean textured;
@@ -32,7 +34,6 @@ namespace _3DTestGame
                 foreach (BasicEffect be in mesh.Effects)
                 {
                     be.EnableDefaultLighting();
-                    be.TextureEnabled = this.textured;
                     be.Projection = camera.projection;
                     be.View = camera.view;
                     be.World = GetWorld() * mesh.ParentBone.Transform;

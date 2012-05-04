@@ -109,5 +109,10 @@ namespace _3DTestGame
         {
             return keyState.IsKeyDown(Keys.Right);
         }
+
+        public Boolean leftClick()
+        {
+            return mouseState.LeftButton == ButtonState.Pressed;
+        }
     }
 }

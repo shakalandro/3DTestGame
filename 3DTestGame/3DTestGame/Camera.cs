@@ -19,7 +19,7 @@ namespace _3DTestGame
         public Vector3 pos;
         public Vector3 dir;
         public Vector3 up;
-        public readonly float moveSpeed = 0.01f;
+        public readonly float moveSpeed = 0.05f;
         public readonly float rotateSpeed = 0.01f;
 
         public UserInput input;

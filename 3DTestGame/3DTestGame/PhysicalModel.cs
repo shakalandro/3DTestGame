@@ -35,13 +35,14 @@ namespace _3DTestGame
             this.body.CollisionSkin = this.skin;
             this.body.Immovable = solid;
            
-            this.skin.AddPrimitive(new Box(Vector3.Zero, Matrix.Identity, this.scale), 
+            this.skin.AddPrimitive(new Box(Vector3.Zero, Matrix.Identity, Vector3.Multiply(this.scale, model.Meshes[0].BoundingSphere.Radius)), 
                     new MaterialProperties(0.8f, 0.7f, 0.6f));
 
             this.body.MoveTo(this.position, Matrix.Identity);
 
             this.skin.ApplyLocalTransform(new Transform(-1 * SetMass(1.0f), Matrix.Identity));
             this.body.EnableBody();
+            //this.body.CollisionSkin.WorldBoundingBox
         }
 
         public override void Update()
@@ -59,6 +60,14 @@ namespace _3DTestGame
                 {
                     be.EnableDefaultLighting();
                     be.TextureEnabled = this.textured;
+                    if (BasicModel.selected == this)
+                    {
+                        be.DiffuseColor = new Vector3(0.9f, 0f, 0f);
+                    }
+                    else
+                    {
+                        be.DiffuseColor = new Vector3(1f, 1f, 1f);
+                    }
                     be.Projection = camera.projection;
                     be.View = camera.view;
                     be.World = GetWorld() * mesh.ParentBone.Transform;
@@ -73,7 +82,6 @@ namespace _3DTestGame
                 Matrix.CreateScale(this.scale) *
                 skin.GetPrimitiveLocal(0).Transform.Orientation *
                 body.Orientation *
-                // This line makes the frons move away
                 Matrix.CreateTranslation(this.body.Position);
         }
 
