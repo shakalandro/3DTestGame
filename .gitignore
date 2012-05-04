@@ -1,0 +1,5 @@
+lib/*
+3DTestGame/3DTestGameContent/obj/*
+3DTestGame/3DTestGame/obj/*
+3DTestGame/3DTestGame/bin/*
+3DTestGame/3DTestGame/3DTestGame.csproj.Debug.cachefile
