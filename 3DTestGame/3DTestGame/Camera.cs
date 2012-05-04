@@ -12,12 +12,8 @@ using Microsoft.Xna.Framework.Media;
 
 namespace _3DTestGame
 {
-    /// <summary>
-    /// This is a game component that implements IUpdateable.
-    /// </summary>
     public class Camera : Microsoft.Xna.Framework.GameComponent
     {
-
         public Matrix view { get; protected set; }
         public Matrix projection { get; protected set; }
         public Vector3 pos;
@@ -28,8 +24,7 @@ namespace _3DTestGame
 
         public UserInput input;
 
-        public Camera(Game game, Vector3 pos, Vector3 dir, Vector3 up)
-            : base(game)
+        public Camera(Game game, Vector3 pos, Vector3 dir, Vector3 up) : base(game)
         {
             this.pos = pos;
             this.dir = dir;

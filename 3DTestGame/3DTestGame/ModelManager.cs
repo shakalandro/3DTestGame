@@ -20,8 +20,7 @@ namespace _3DTestGame
 
         List<BasicModel> models;
 
-        public ModelManager(Game game)
-            : base(game)
+        public ModelManager(Game game) : base(game)
         {
             this.models = new List<BasicModel>();
             Console.WriteLine("Manager made");
@@ -40,9 +39,10 @@ namespace _3DTestGame
 
         protected override void LoadContent()
         {
-            Console.WriteLine("About to add");
-            models.Add(new BasicModel(Game.Content.Load<Model>(@"Models/terrain2")));
-            models.Add(new PhysicalModel(Game.Content.Load<Model>(@"Models/fern"), new Vector3(1, 1, 1), new Vector3(0.2f,0.2f,0.2f), true));
+            models.Add(new BasicModel(Game.Content.Load<Model>(@"Models/terrain2"), false));
+            models.Add(new BasicModel(Game.Content.Load<Model>(@"Models/fern"), true));
+            //models.Add(new PhysicalModel(Game.Content.Load<Model>(@"Models/p1_wedge"), true,
+            //        new Vector3(3f, 0f, 0f), new Vector3(0.02f, 0.02f, 0.02f), true));
             base.LoadContent();
         }
 

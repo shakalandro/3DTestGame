@@ -22,9 +22,9 @@ namespace _3DTestGame
         public Body body { get; private set; }
         public CollisionSkin skin { get; private set; }
 
-        public PhysicalModel(Model m, Vector3 pos, Vector3 scale) : this(m, pos, scale, false) {}
+        public PhysicalModel(Model m, Boolean t, Vector3 pos, Vector3 scale) : this(m, t, pos, scale, false) {}
 
-        public PhysicalModel(Model m, Vector3 pos, Vector3 scale, Boolean solid) : base(m)
+        public PhysicalModel(Model m, Boolean t, Vector3 pos, Vector3 scale, Boolean solid) : base(m, t)
         {
             this.position = pos;
             this.scale = scale;
@@ -58,6 +58,7 @@ namespace _3DTestGame
                 foreach (BasicEffect be in mesh.Effects)
                 {
                     be.EnableDefaultLighting();
+                    be.TextureEnabled = this.textured;
                     be.Projection = camera.projection;
                     be.View = camera.view;
                     be.World = GetWorld() * mesh.ParentBone.Transform;
@@ -71,9 +72,9 @@ namespace _3DTestGame
             return
                 Matrix.CreateScale(this.scale) *
                 skin.GetPrimitiveLocal(0).Transform.Orientation *
-                body.Orientation;
+                body.Orientation *
                 // This line makes the frons move away
-                // Matrix.CreateTranslation(this.body.Position);
+                Matrix.CreateTranslation(this.body.Position);
         }
 
         private Vector3 SetMass(float mass)

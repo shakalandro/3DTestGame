@@ -5,6 +5,7 @@ using System.Text;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Content;
 
 namespace _3DTestGame
 {
@@ -12,12 +13,16 @@ namespace _3DTestGame
     {
         public Model model { get; protected set; }
         protected Matrix world = Matrix.Identity;
+        public Boolean textured;
 
-        public BasicModel(Model m)
+        public BasicModel(Model m, Boolean textured)
         {
             this.model = m;
+            this.textured = textured;
         }
+
         public virtual void Update() {}
+
         public virtual void Draw(Camera camera)
         {
             Matrix[] transforms = new Matrix[model.Bones.Count];
@@ -27,6 +32,7 @@ namespace _3DTestGame
                 foreach (BasicEffect be in mesh.Effects)
                 {
                     be.EnableDefaultLighting();
+                    be.TextureEnabled = this.textured;
                     be.Projection = camera.projection;
                     be.View = camera.view;
                     be.World = GetWorld() * mesh.ParentBone.Transform;

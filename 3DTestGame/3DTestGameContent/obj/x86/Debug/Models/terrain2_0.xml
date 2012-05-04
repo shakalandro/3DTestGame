@@ -3,7 +3,7 @@
   <Asset Type="Graphics:NodeContent">
     <Name>RootNode</Name>
     <Identity>
-      <SourceFilename>C:\Users\Malagos\Desktop\3DTestGame2\3DTestGame\3DTestGame\3DTestGameContent\Models\terrain2.fbx</SourceFilename>
+      <SourceFilename>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGameContent\Models\terrain2.fbx</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <Transform>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</Transform>
