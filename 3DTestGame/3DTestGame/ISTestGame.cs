@@ -21,10 +21,11 @@ namespace _3DTestGame
     /// </summary>
     public class ISTestGame : Microsoft.Xna.Framework.Game
     {
+        public readonly Boolean DEBUG = true;
+
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         public Camera camera;
-        ModelManager mm;
         public UserInput input;
         public PhysicsSystem phys;
         public DebugDrawer physDebug;
@@ -51,11 +52,15 @@ namespace _3DTestGame
                 new Vector3(-1f, -1f, -1f), Vector3.Up);
             this.physDebug = new DebugDrawer(this, this.camera);
             this.physDebug.Enabled = true;
-            this.mm = new ModelManager(this);
             Components.Add(this.input);
             Components.Add(this.camera);
+            Services.AddService(typeof(ICamera), this.camera);
+            Services.AddService(typeof(IInput), this.input);
             Components.Add(this.physDebug);
-            Components.Add(this.mm);
+            Components.Add(new PhysicalModel(this, this.Content.Load<Model>(@"Models/terrain2"), false,
+                    new Vector3(0f, 0f, 0f), 1.0f, true));
+            Components.Add(new MobileModel(this, this.Content.Load<Model>(@"Models/cobra"), false,
+                    new Vector3(0f, 5f, 0f), 0.5f, false, 0.01f));
 
             // Turn off backface culling for now
             //RasterizerState rs = new RasterizerState();

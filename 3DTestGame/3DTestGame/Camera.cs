@@ -12,15 +12,23 @@ using Microsoft.Xna.Framework.Media;
 
 namespace _3DTestGame
 {
-    public class Camera : Microsoft.Xna.Framework.GameComponent
+    public class Camera : Microsoft.Xna.Framework.GameComponent, ICamera
     {
         public Matrix view { get; protected set; }
         public Matrix projection { get; protected set; }
-        public Vector3 pos;
-        public Vector3 dir;
-        public Vector3 up;
-        public readonly float moveSpeed = 0.05f;
-        public readonly float rotateSpeed = 0.01f;
+        public Vector3 pos { get; protected set; }
+        public Vector3 dir { get; protected set; }
+        public Vector3 up { get; protected set; }
+        public float moveSpeed { 
+            get {
+                return 0.05f;
+            }
+        }
+        public float rotateSpeed { 
+            get {
+                return 0.01f;
+            }
+        }
 
         public UserInput input;
 

@@ -8,10 +8,10 @@
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\terrain2.xnb</Output>
-      <Time>2012-04-25T10:44:59.463-07:00</Time>
+      <Time>2012-05-09T04:32:11.2885-07:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\terrain2_0.xml</Key>
-        <Value>2012-04-25T10:45:34.92-07:00</Value>
+        <Value>2012-05-09T04:32:15.3425-07:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -19,7 +19,7 @@
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\terrain2_0.xml</Output>
-      <Time>2012-04-25T10:44:59.463-07:00</Time>
+      <Time>2012-05-09T04:32:11.2885-07:00</Time>
     </Item>
     <Item>
       <Source>Models\fern.fbx</Source>
@@ -56,7 +56,7 @@
       </Parameters>
       <Options>None</Options>
       <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\fernMap_0.xnb</Output>
-      <Time>2012-04-25T10:55:52.1-07:00</Time>
+      <Time>2012-05-04T10:40:30.062-07:00</Time>
     </Item>
     <Item>
       <Source>Models\fernMap.png</Source>
@@ -65,7 +65,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\fernMap.xnb</Output>
-      <Time>2012-04-25T10:55:52.1-07:00</Time>
+      <Time>2012-05-04T10:40:30.062-07:00</Time>
     </Item>
     <Item>
       <Source>Models\p1_wedge.fbx</Source>
@@ -140,6 +140,106 @@
       <Options>None</Options>
       <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\CubeMap_0.xnb</Output>
       <Time>2012-05-03T19:53:44.091-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\fernTWO.fbx</Source>
+      <Name>Models\fernTWO</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\fernTWO.xnb</Output>
+      <Time>2012-05-04T10:40:30.065-07:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\fernTWO_0.xml</Key>
+        <Value>2012-05-04T10:41:07.383-07:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\fernTWO.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\fernTWO_0.xml</Output>
+      <Time>2012-05-04T10:40:30.065-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\palmTree.fbx</Source>
+      <Name>Models\palmTree</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\palmTree.xnb</Output>
+      <Time>2012-05-09T02:23:25.814-07:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\palmTree_0.xml</Key>
+        <Value>2012-05-09T02:30:13.898-07:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\palmTree.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\palmTree_0.xml</Output>
+      <Time>2012-05-09T02:23:25.814-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\fernCubeTexture.fbx</Source>
+      <Name>Models\fernCubeTexture</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\fernCubeTexture.xnb</Output>
+      <Time>2012-05-09T02:23:25.79-07:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\fernCubeTexture_0.xml</Key>
+        <Value>2012-05-09T03:18:36.452-07:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\fernCubeTexture.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\fernCubeTexture_0.xml</Output>
+      <Time>2012-05-09T02:23:25.79-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\fernUntextured.fbx</Source>
+      <Name>Models\fernUntextured</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\fernUntextured.xnb</Output>
+      <Time>2012-05-09T02:23:25.813-07:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\fernUntextured_0.xml</Key>
+        <Value>2012-05-09T03:20:43.477-07:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\fernUntextured.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\fernUntextured_0.xml</Output>
+      <Time>2012-05-09T02:23:25.813-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\cobra.fbx</Source>
+      <Name>Models\cobra</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\cobra.xnb</Output>
+      <Time>2012-05-09T04:33:09.3805-07:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\cobra_0.xml</Key>
+        <Value>2012-05-09T04:33:11.8835-07:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\cobra.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\cobra_0.xml</Output>
+      <Time>2012-05-09T04:33:09.3805-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

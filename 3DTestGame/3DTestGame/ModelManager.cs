@@ -18,16 +18,20 @@ namespace _3DTestGame
     /// </summary>
     public class ModelManager : Microsoft.Xna.Framework.DrawableGameComponent
     {
-
+        public ICamera camera
+        {
+            get
+            {
+                return (ICamera)this.Game.Services.GetService(typeof(ICamera));
+            }
+        }
         public List<BasicModel> models;
-        private Camera camera;
         private UserInput input;
         private DebugDrawer physDebug;
 
         public ModelManager(Game game) : base(game)
         {
             this.models = new List<BasicModel>();
-            this.camera = ((ISTestGame)this.Game).camera;
             this.input = ((ISTestGame)this.Game).input;
             this.physDebug = ((ISTestGame)this.Game).physDebug;
         }
@@ -46,9 +50,9 @@ namespace _3DTestGame
         protected override void LoadContent()
         {
             models.Add(new PhysicalModel(Game.Content.Load<Model>(@"Models/terrain2"), false,
-                    Vector3.Zero, Vector3.One, true));
-            models.Add(new PhysicalModel(Game.Content.Load<Model>(@"Models/cube"), true,
-                    new Vector3(0f, 0f, 5f), Vector3.One, true));
+                    new Vector3(0f, 0f, 0f), 1.0f, true));
+            models.Add(new PhysicalModel(Game.Content.Load<Model>(@"Models/cobra"), false,
+                    new Vector3(0f, 5f, 0f), 0.5f, false));
 
             BoundingSphereRenderer.Initialize(GraphicsDevice, 45);
             base.LoadContent();
@@ -73,14 +77,20 @@ namespace _3DTestGame
         {
             foreach (BasicModel m in models)
             {
-                m.Draw(((ISTestGame)this.Game).camera);
-
-                // Debug drawing
-                BoundingSphereRenderer.Draw(TransformBoundingSphere(m.model.Meshes[0].BoundingSphere, m.GetWorld()),
-                        this.camera.view, this.camera.projection);
-                VertexPositionColor[] vpc = ((PhysicalModel)m).skin.GetLocalSkinWireframe();     //get the CollisionSkin
-                ((PhysicalModel)m).body.TransformWireframe(vpc);           //transform the skin to the Body space
-                this.physDebug.DrawShape(vpc);
+                m.Draw(this.camera);
+                // Debug draw the sphere that bounds the model
+                Matrix[] transforms = new Matrix[m.model.Bones.Count];
+                m.model.CopyAbsoluteBoneTransformsTo(transforms);
+                //BoundingSphereRenderer.Draw(TransformBoundingSphere(m.model.Meshes[0].BoundingSphere,
+                //    transforms[m.model.Meshes[0].ParentBone.Index] * m.GetWorld()),
+                //        this.camera.view, this.camera.projection);
+                if (m is PhysicalModel)
+                {
+                    // Debug draw the collision skin sphere
+                    VertexPositionColor[] vpc = ((PhysicalModel)m).skin.GetLocalSkinWireframe();     //get the CollisionSkin
+                    ((PhysicalModel)m).body.TransformWireframe(vpc);           //transform the skin to the Body space
+                    this.physDebug.DrawShape(vpc);
+                }
             }
 
             base.Draw(gameTime);
@@ -99,8 +109,11 @@ namespace _3DTestGame
                 for (int i = 0; i < this.models.Count; i++)
                 {
                     BasicModel bm = this.models[i];
+                    Matrix[] transforms = new Matrix[bm.model.Bones.Count];
+                    bm.model.CopyAbsoluteBoneTransformsTo(transforms);
                     foreach (ModelMesh mesh in bm.model.Meshes) {
-                        BoundingSphere sphere = TransformBoundingSphere(mesh.BoundingSphere, bm.GetWorld());
+                        BoundingSphere sphere = TransformBoundingSphere(mesh.BoundingSphere,
+                            transforms[mesh.ParentBone.Index] * bm.GetWorld());
                         Nullable<float> dist = pickRay.Intersects(sphere);
                         if (dist.HasValue && dist.Value < selectedDistance)
                         {

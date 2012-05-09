@@ -9,23 +9,33 @@ using Microsoft.Xna.Framework.Content;
 
 namespace _3DTestGame
 {
-    public class BasicModel
+    public class BasicModel : DrawableGameComponent
     {
         public static BasicModel selected;
 
         public Model model { get; protected set; }
-        protected Matrix world = Matrix.Identity;
         public Boolean textured;
 
-        public BasicModel(Model m, Boolean textured)
+        public ICamera camera
+        {
+            get
+            {
+                return (ICamera)this.Game.Services.GetService(typeof(ICamera));
+            }
+        }
+
+        public BasicModel(Game game, Model m, Boolean textured) : base(game)
         {
             this.model = m;
             this.textured = textured;
         }
 
-        public virtual void Update() {}
+        public override void Update(GameTime gameTime)
+        {
+            base.Update(gameTime);
+        }
 
-        public virtual void Draw(Camera camera)
+        public override void Draw(GameTime gameTime)
         {
             Matrix[] transforms = new Matrix[model.Bones.Count];
             model.CopyAbsoluteBoneTransformsTo(transforms);
@@ -36,15 +46,19 @@ namespace _3DTestGame
                     be.EnableDefaultLighting();
                     be.Projection = camera.projection;
                     be.View = camera.view;
-                    be.World = GetWorld() * mesh.ParentBone.Transform;
+                    be.World = mesh.ParentBone.Transform * GetWorld();
+                    ChangeEffect(be);
                 }
                 mesh.Draw();
             }
+            base.Draw(gameTime);
         }
 
         public virtual Matrix GetWorld()
         {
-            return world;
+            return Matrix.Identity;
         }
+
+        public virtual void ChangeEffect(BasicEffect e) {}
     }
 }

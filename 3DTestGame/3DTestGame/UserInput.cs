@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 
 namespace _3DTestGame
 {
-    public class UserInput : Microsoft.Xna.Framework.GameComponent
+    public class UserInput : Microsoft.Xna.Framework.GameComponent, IInput
     {
         public readonly double MOUSE_SENSITIVITY = 5;
 
