@@ -68,7 +68,7 @@ namespace _3DTestGame
             Components.Add(this.physDebug);
 
 
-            /*---------------------------------*/
+            /*---------------------------------
             //make heightmap
             terrain = Content.Load<Texture2D>(@"Models/Heightmap2");
             heightMap = new HeightMap(terrain, 30);
@@ -81,19 +81,19 @@ namespace _3DTestGame
             //initialize basic effect(tells graphics device to get ready to draw the effect)
             effect = Content.Load<Effect>(@"Models/effects");
 
-            /*---------------------------------*/
+            /*----------------------------------*/
 
-            Components.Add(new HeightMapModel2(this, heightMap, false,
-                    new Vector3(0f, 0f, 0f), 1.0f));
-            Components.Add(new PlaneModel(this, this.Content.Load<Model>(@"Models/terrain2"), false,
+            //Components.Add(new HeightMapModel2(this, heightMap, false,
+            //        new Vector3(0f, 0f, 0f), 1.0f));
+            Components.Add(new PlaneModel(this, this.Content.Load<Model>(@"Models/terrainUntextured"), false,
                     new Vector3(0f, 0f, 0f)));
             Components.Add(new MobileModel(this, this.Content.Load<Model>(@"Models/cobra"), false,
-                    new Vector3(40f, 40f, 0f), 0.5f, false, 0.01f));
+                    new Vector3(0f, 10f, 0f), 0.5f, false, 0.01f));
 
             // Turn off backface culling for now
-            //RasterizerState rs = new RasterizerState();
-            //rs.CullMode = CullMode.None;
-            //GraphicsDevice.RasterizerState = rs;
+            RasterizerState rs = new RasterizerState();
+            rs.CullMode = CullMode.None;
+            GraphicsDevice.RasterizerState = rs;
 
             base.Initialize();
         }
@@ -146,7 +146,7 @@ namespace _3DTestGame
             // TODO: Add your drawing code here
 
 
-            /*-----------Height Map drawing code (if needed)*/
+            /*-----------Height Map drawing code (if needed)
 
             //NOTE: can turn this into basic effect later (or remove for meshes)
             Matrix worldMatrix = Matrix.CreateTranslation(-heightMap.getWidth() / 2.0f, 0, heightMap.getHeight() / 2.0f);
