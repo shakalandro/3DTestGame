@@ -30,6 +30,15 @@ namespace _3DTestGame
         public PhysicsSystem phys;
         public DebugDrawer physDebug;
 
+
+        //Heightmap Related
+        Texture2D terrain;            ///////
+        HeightMap heightMap;
+
+        //rendering related
+        VertexBuffer vertexBuffer;      //vertex information for the graphics device
+        Effect effect;             //effect to draw with
+
         public ISTestGame()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -48,7 +57,7 @@ namespace _3DTestGame
             this.phys = new PhysicsSystem();
             this.phys.CollisionSystem = new CollisionSystemSAP();
             this.input = new UserInput(this);
-            this.camera = new Camera(this, new Vector3(10f, 10f, 10f),
+            this.camera = new Camera(this, new Vector3(50f, 50f, 50f),
                 new Vector3(-1f, -1f, -1f), Vector3.Up);
             this.physDebug = new DebugDrawer(this, this.camera);
             this.physDebug.Enabled = true;
@@ -57,12 +66,29 @@ namespace _3DTestGame
             Services.AddService(typeof(ICamera), this.camera);
             Services.AddService(typeof(IInput), this.input);
             Components.Add(this.physDebug);
-            //Components.Add(new HeightMapModel(this, this.Content.Load<Model>(@"Models/terrain2"), false,
-            //        new Vector3(0f, 0f, 0f), 1.0f));
+
+
+            /*---------------------------------*/
+            //make heightmap
+            terrain = Content.Load<Texture2D>(@"Models/Heightmap2");
+            heightMap = new HeightMap(terrain, 30);
+
+            //make buffer for heightmap
+            //set vertex data in buffer
+            vertexBuffer = new VertexBuffer(GraphicsDevice, typeof(VertexPositionColor), heightMap.getVertices().Length, BufferUsage.None);
+            vertexBuffer.SetData(heightMap.getVertices());
+
+            //initialize basic effect(tells graphics device to get ready to draw the effect)
+            effect = Content.Load<Effect>(@"Models/effects");
+
+            /*---------------------------------*/
+
+            Components.Add(new HeightMapModel2(this, heightMap, false,
+                    new Vector3(0f, 0f, 0f), 1.0f));
             Components.Add(new PlaneModel(this, this.Content.Load<Model>(@"Models/terrain2"), false,
                     new Vector3(0f, 0f, 0f)));
             Components.Add(new MobileModel(this, this.Content.Load<Model>(@"Models/cobra"), false,
-                    new Vector3(0f, 5f, 0f), 0.5f, false, 0.01f));
+                    new Vector3(40f, 40f, 0f), 0.5f, false, 0.01f));
 
             // Turn off backface culling for now
             //RasterizerState rs = new RasterizerState();
@@ -118,6 +144,30 @@ namespace _3DTestGame
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             // TODO: Add your drawing code here
+
+
+            /*-----------Height Map drawing code (if needed)*/
+
+            //NOTE: can turn this into basic effect later (or remove for meshes)
+            Matrix worldMatrix = Matrix.CreateTranslation(-heightMap.getWidth() / 2.0f, 0, heightMap.getHeight() / 2.0f);
+            effect.CurrentTechnique = effect.Techniques["ColoredNoShading"];
+            effect.Parameters["xView"].SetValue(camera.view);
+            effect.Parameters["xProjection"].SetValue(camera.projection);
+            effect.Parameters["xWorld"].SetValue(worldMatrix);
+
+            //begin effect and draw for each pass
+            foreach (EffectPass pass in effect.CurrentTechnique.Passes)
+            {
+                pass.Apply();
+                //device.DrawUserIndexedPrimitives(PrimitiveType.TriangleList, vertices, 0, vertices.Length, indices, 0, indices.Length / 3, VertexPositionColor.VertexDeclaration); IndexElementSize.SixteenBits
+                GraphicsDevice.DrawUserIndexedPrimitives(Microsoft.Xna.Framework.Graphics.PrimitiveType.TriangleList, heightMap.getVertices(), 0, heightMap.getVertices().Length, heightMap.getIndices(), 0, heightMap.getIndices().Length / 3, VertexPositionColor.VertexDeclaration);
+            }
+
+
+            /*-----------------------------Microsoft.Xna.Framework.Graphics----*/
+
+
+
 
             base.Draw(gameTime);
         }
