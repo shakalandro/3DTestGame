@@ -89,21 +89,24 @@ namespace _3DTestGame
                 pos -= dir * moveSpeed;
             }
             // Rotate the camera using the mouse
-            if (input.up3())
+            if (input.leftClick())
             {
-                dir = Vector3.Transform(dir, Matrix.CreateFromAxisAngle(Vector3.Cross(up, dir), -rotateSpeed));
-            }
-            else if (input.down3())
-            {
-                dir = Vector3.Transform(dir, Matrix.CreateFromAxisAngle(Vector3.Cross(up, dir), rotateSpeed));
-            }
-            if (input.left3())
-            {
-                dir = Vector3.Transform(dir, Matrix.CreateFromAxisAngle(up, rotateSpeed));
-            }
-            else if (input.right3())
-            {
-                dir = Vector3.Transform(dir, Matrix.CreateFromAxisAngle(up, -rotateSpeed));
+                if (input.up2())
+                {
+                    dir = Vector3.Transform(dir, Matrix.CreateFromAxisAngle(Vector3.Cross(up, dir), -rotateSpeed));
+                }
+                else if (input.down2())
+                {
+                    dir = Vector3.Transform(dir, Matrix.CreateFromAxisAngle(Vector3.Cross(up, dir), rotateSpeed));
+                }
+                if (input.left2())
+                {
+                    dir = Vector3.Transform(dir, Matrix.CreateFromAxisAngle(up, rotateSpeed));
+                }
+                else if (input.right2())
+                {
+                    dir = Vector3.Transform(dir, Matrix.CreateFromAxisAngle(up, -rotateSpeed));
+                }
             }
             CreateLookAt();
             base.Update(gameTime);

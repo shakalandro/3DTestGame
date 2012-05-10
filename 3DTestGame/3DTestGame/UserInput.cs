@@ -72,22 +72,22 @@ namespace _3DTestGame
 
         public Boolean up2()
         {
-            return (mouseState.X - prevMouseState.X) > MOUSE_SENSITIVITY; 
+            return (prevMouseState.Y - mouseState.Y) > MOUSE_SENSITIVITY;
         }
 
         public Boolean down2()
         {
-            return (prevMouseState.X - mouseState.X) > MOUSE_SENSITIVITY;
+            return (mouseState.Y - prevMouseState.Y) > MOUSE_SENSITIVITY;
         }
 
         public Boolean left2()
         {
-            return (prevMouseState.Y - mouseState.Y) > MOUSE_SENSITIVITY;
+            return (prevMouseState.X - mouseState.X) > MOUSE_SENSITIVITY;
         }
 
         public Boolean right2()
         {
-            return (mouseState.Y - prevMouseState.Y) > MOUSE_SENSITIVITY;
+            return (mouseState.X - prevMouseState.X) > MOUSE_SENSITIVITY;
         }
 
         public Boolean up3()

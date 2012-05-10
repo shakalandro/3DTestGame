@@ -35,7 +35,19 @@ namespace _3DTestGame
         {
             if (input.down3())
             {
-                this.position = new Vector3(position.X + speed, position.Y, position.Z);
+                this.Velocity = Vector3.Add(this.Velocity, new Vector3(0f, 0f, DEFAULT_SPEED));
+            }
+            if (input.up3())
+            {
+                this.Velocity = Vector3.Add(this.Velocity, new Vector3(0f, 0f, -DEFAULT_SPEED));
+            }
+            if (input.left3())
+            {
+                this.Velocity = Vector3.Add(this.Velocity, new Vector3(-DEFAULT_SPEED, 0f, 0f));
+            }
+            if (input.right3())
+            {
+                this.Velocity = Vector3.Add(this.Velocity, new Vector3(DEFAULT_SPEED, 0f, 0f));
             }
             CheckMouseClick();
             base.Update(gameTime);
@@ -77,7 +89,7 @@ namespace _3DTestGame
                     BoundingSphere sphere = TransformBoundingSphere(mesh.BoundingSphere,
                         transforms[mesh.ParentBone.Index] * this.GetWorld());
                     Nullable<float> dist = pickRay.Intersects(sphere);
-                    if (!minDist.HasValue || (dist.HasValue && dist.Value < minDist.Value))
+                    if ((!minDist.HasValue && dist.HasValue) || (dist.HasValue && dist.Value < minDist.Value))
                     {
                         BasicModel.selected = this;
                     }

@@ -110,17 +110,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BasicModel.cs" />
+    <Compile Include="ModelClasses\BasicModel.cs" />
     <Compile Include="BoundingSphereRenderer.cs" />
     <Compile Include="Camera.cs" />
     <Compile Include="DebugDrawer.cs" />
+    <Compile Include="HeightMapInfo.cs" />
     <Compile Include="ICamera.cs" />
     <Compile Include="IInput.cs" />
-    <Compile Include="MobileModel.cs" />
-    <Compile Include="PhysicalModel.cs" />
+    <Compile Include="ModelClasses\MobileModel.cs" />
+    <Compile Include="ModelClasses\PhysicalModel.cs" />
+    <Compile Include="ModelClasses\PlaneModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ISTestGame.cs" />
+    <Compile Include="ModelClasses\HeightMapModel.cs" />
     <Compile Include="UserInput.cs" />
   </ItemGroup>
   <ItemGroup>

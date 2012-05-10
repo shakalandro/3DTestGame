@@ -57,8 +57,10 @@ namespace _3DTestGame
             Services.AddService(typeof(ICamera), this.camera);
             Services.AddService(typeof(IInput), this.input);
             Components.Add(this.physDebug);
-            Components.Add(new PhysicalModel(this, this.Content.Load<Model>(@"Models/terrain2"), false,
-                    new Vector3(0f, 0f, 0f), 1.0f, true));
+            //Components.Add(new HeightMapModel(this, this.Content.Load<Model>(@"Models/terrain2"), false,
+            //        new Vector3(0f, 0f, 0f), 1.0f));
+            Components.Add(new PlaneModel(this, this.Content.Load<Model>(@"Models/terrain2"), false,
+                    new Vector3(0f, 0f, 0f)));
             Components.Add(new MobileModel(this, this.Content.Load<Model>(@"Models/cobra"), false,
                     new Vector3(0f, 5f, 0f), 0.5f, false, 0.01f));
 
