@@ -92,8 +92,10 @@ namespace _3DTestGame
             this.Body = new Body();
             this.Skin = new CollisionSkin(this.Body);
             this.Body.CollisionSkin = this.Skin;
-            this.Skin.AddPrimitive(new Sphere(Vector3.Zero, this.Scale * model.Meshes[0].BoundingSphere.Radius),
+            if(model != null) {
+                this.Skin.AddPrimitive(new Sphere(Vector3.Zero, this.Scale * model.Meshes[0].BoundingSphere.Radius),
                     new MaterialProperties(1f, 0.7f, 0.6f));
+            }
             this.Skin.ApplyLocalTransform(new Transform(-1 * SetMass(1.0f), Matrix.Identity));
             this.Body.EnableBody();
         }

@@ -3,7 +3,7 @@
   <Asset Type="Graphics:MeshContent">
     <Name>Plane</Name>
     <Identity>
-      <SourceFilename>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGameContent\Models\terrain2.fbx</SourceFilename>
+      <SourceFilename>C:\Users\Malagos\Desktop\3DTestGame\3DTestGame\3DTestGame\3DTestGameContent\Models\terrain2.fbx</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <Transform>7.21866035 0 0 0 0 7.344914 0 0 0 0 1 0 -0.5540829 -0.08851814 0.560134649 1</Transform>
