@@ -60,6 +60,9 @@
     <XnaCompressContent>true</XnaCompressContent>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BEPUphysics">
+      <HintPath>..\..\..\..\BEPUphysics v1.1.0 (1)\x86\Release\BEPUphysics.dll</HintPath>
+    </Reference>
     <Reference Include="JigLibX">
       <HintPath>..\..\lib\JigLibX 0.3.1\JigLibX\bin\x86\Debug\JigLibX.dll</HintPath>
     </Reference>
@@ -117,6 +120,9 @@
     <Compile Include="DebugDrawer.cs" />
     <Compile Include="ICamera.cs" />
     <Compile Include="IInput.cs" />
+    <Compile Include="ModelClasses\ControledModel.cs" />
+    <Compile Include="ModelClasses\StaticModel.cs" />
+    <Compile Include="ModelClasses\EntityModel.cs" />
     <Compile Include="ModelClasses\HeightMapModel2.cs" />
     <Compile Include="ModelClasses\MobileModel.cs" />
     <Compile Include="ModelClasses\PhysicalModel.cs" />
