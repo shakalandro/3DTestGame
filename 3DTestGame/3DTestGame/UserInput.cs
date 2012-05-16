@@ -70,6 +70,11 @@ namespace _3DTestGame
             return keyState.IsKeyDown(Keys.E);
         }
 
+        public Boolean spaceKey()
+        {
+            return keyState.IsKeyDown(Keys.Space);   
+        }
+
         public Boolean up2()
         {
             return (prevMouseState.Y - mouseState.Y) > MOUSE_SENSITIVITY;

@@ -17,6 +17,8 @@ namespace _3DTestGame
         Boolean forward();
         Boolean backward();
 
+        Boolean spaceKey();
+
         Boolean up2();
         Boolean down2();
         Boolean left2();

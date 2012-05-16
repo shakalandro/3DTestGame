@@ -8,11 +8,23 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+/*
 using JigLibX.Physics;
 using JigLibX.Collision;
 using JigLibX.Geometry;
 using JigLibX.Utils;
 using JigLibX.Math;
+ */
+
+/*------BEPU includes ------*/
+using BEPUphysics.Collidables;
+using BEPUphysics.Collidables.MobileCollidables;
+using BEPUphysics.Entities.Prefabs;
+using BEPUphysics.MathExtensions;
+using BEPUphysics;
+using BEPUphysics.Entities;
+using BEPUphysics.DataStructures;
+using BEPUphysics.NarrowPhaseSystems.Pairs;
 
 namespace _3DTestGame
 {
@@ -27,17 +39,21 @@ namespace _3DTestGame
         SpriteBatch spriteBatch;
         public Camera camera;
         public UserInput input;
-        public PhysicsSystem phys;
+
+        //public PhysicsSystem phys;
+
         public DebugDrawer physDebug;
 
 
-        //Heightmap Related
-        Texture2D terrain;            ///////
-        HeightMap heightMap;
+        /*-----BEPU Physics fields-----*/
+        Space space;
+        public Model terrain;
+        public Model cube;
+        Box testBox;
 
-        //rendering related
-        VertexBuffer vertexBuffer;      //vertex information for the graphics device
-        Effect effect;             //effect to draw with
+        
+
+        /*-------------*/
 
         public ISTestGame()
         {
@@ -54,10 +70,13 @@ namespace _3DTestGame
         protected override void Initialize()
         {
             this.IsMouseVisible = true;
+
+            /*
             this.phys = new PhysicsSystem();
             this.phys.CollisionSystem = new CollisionSystemSAP();
+             */
             this.input = new UserInput(this);
-            this.camera = new Camera(this, new Vector3(50f, 50f, 50f),
+            this.camera = new Camera(this, new Vector3(25f, 25f, 25f),
                 new Vector3(-1f, -1f, -1f), Vector3.Up);
             this.physDebug = new DebugDrawer(this, this.camera);
             this.physDebug.Enabled = true;
@@ -67,34 +86,20 @@ namespace _3DTestGame
             Services.AddService(typeof(IInput), this.input);
             Components.Add(this.physDebug);
 
+            /*-----BEPU Physics stuff-----*/
 
-            /*---------------------------------
-            //make heightmap
-            terrain = Content.Load<Texture2D>(@"Models/Heightmap2");
-            heightMap = new HeightMap(terrain, 30);
+            /*
+            Components.Add(new PlaneModel(this, this.Content.Load<Model>(@"Models/terrainUntextured"), false,
 
-            //make buffer for heightmap
-            //set vertex data in buffer
-            vertexBuffer = new VertexBuffer(GraphicsDevice, typeof(VertexPositionColor), heightMap.getVertices().Length, BufferUsage.None);
-            vertexBuffer.SetData(heightMap.getVertices());
-
-            //initialize basic effect(tells graphics device to get ready to draw the effect)
-            effect = Content.Load<Effect>(@"Models/effects");
-
-            /*----------------------------------*/
-
-            //Components.Add(new HeightMapModel2(this, heightMap, false,
-            //        new Vector3(0f, 0f, 0f), 1.0f));
-            Components.Add(new PlaneModel(this, this.Content.Load<Model>(@"Models/terrainGabes"), false,
                     new Vector3(0f, 0f, 0f)));
             Components.Add(new MobileModel(this, this.Content.Load<Model>(@"Models/cobra"), false,
                     new Vector3(0f, 10f, 0f), 0.5f, false, 0.01f));
-
+            
             // Turn off backface culling for now
             RasterizerState rs = new RasterizerState();
             rs.CullMode = CullMode.None;
             GraphicsDevice.RasterizerState = rs;
-
+            */
             base.Initialize();
         }
 
@@ -107,8 +112,66 @@ namespace _3DTestGame
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
+
+
+            /*-----BEPU Physics content loading-----*/
+            terrain = Content.Load<Model>(@"Models/terrainUntextured");
+            cube = Content.Load<Model>(@"Models/cube");
+
+            space = new Space();
+
+            //set the gravity of space
+            space.ForceUpdater.Gravity = new Vector3(0, -9.81f, 0);
+
+            //Sample 
+            //Box ground = new Box(Vector3.Zero, 30, 1, 30);
+            //space.Add(ground);
+
+
+            Vector3[] vertices;
+            int[] indices;
+            TriangleMesh.GetVerticesAndIndicesFromModel(terrain, out vertices, out indices);
+            //Give the mesh information to a new StaticMesh.  
+            //Give it a transformation which scoots it down below the kinematic box entity we created earlier.
+            var mesh = new StaticMesh(vertices, indices, new AffineTransform(new Vector3(0, -40, 0)));
+
+            //Add it to the space!
+            space.Add(mesh);
+            //Make it visible too.
+            Components.Add(new StaticModel(terrain, mesh.WorldTransform.Matrix, this));
+
+            testBox = new Box(new Vector3(0, 12, 0), 1, 1, 1, 1);
+            space.Add(testBox);
+            
+
+            /*maybe add later----- game logic ------*/
+            //Hook an event handler to an entity to handle some game logic.
+            //Refer to the Entity Events documentation for more information.
+            //Box deleterBox = new Box(new Vector3(5, 2, 0), 3, 3, 3);
+            //space.Add(deleterBox);
+           // deleterBox.CollisionInformation.Events.InitialCollisionDetected += HandleCollision;
+
+
+            //Go through the list of entities in the space and create a graphical representation for them.
+            foreach (Entity e in space.Entities)
+            {
+                Box box = e as Box;
+                if (box != null) //This won't create any graphics for an entity that isn't a box since the model being used is a box.
+                {
+
+                    Matrix scaling = Matrix.CreateScale(box.Width, box.Height, box.Length); //Since the cube model is 1x1x1, it needs to be scaled to match the size of each individual box.
+                    EntityModel model = new ControledModel(e, cube, scaling, this);
+                    //Add the drawable game component for this entity to the game.
+                    Components.Add(model);
+                    e.Tag = model; //set the object tag of this entity to the model so that it's easy to delete the graphics component later if the entity is removed.
+                }
+            }
+
         }
+
+
+
+
 
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload
@@ -130,8 +193,9 @@ namespace _3DTestGame
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            float timeStep = (float)gameTime.ElapsedGameTime.Ticks / TimeSpan.TicksPerSecond;
-            PhysicsSystem.CurrentPhysicsSystem.Integrate(timeStep);
+           
+            //Steps the simulation forward one time step.
+            space.Update();
 
             base.Update(gameTime);
         }
@@ -144,30 +208,6 @@ namespace _3DTestGame
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             // TODO: Add your drawing code here
-
-
-            /*-----------Height Map drawing code (if needed)
-
-            //NOTE: can turn this into basic effect later (or remove for meshes)
-            Matrix worldMatrix = Matrix.CreateTranslation(-heightMap.getWidth() / 2.0f, 0, heightMap.getHeight() / 2.0f);
-            effect.CurrentTechnique = effect.Techniques["ColoredNoShading"];
-            effect.Parameters["xView"].SetValue(camera.view);
-            effect.Parameters["xProjection"].SetValue(camera.projection);
-            effect.Parameters["xWorld"].SetValue(worldMatrix);
-
-            //begin effect and draw for each pass
-            foreach (EffectPass pass in effect.CurrentTechnique.Passes)
-            {
-                pass.Apply();
-                //device.DrawUserIndexedPrimitives(PrimitiveType.TriangleList, vertices, 0, vertices.Length, indices, 0, indices.Length / 3, VertexPositionColor.VertexDeclaration); IndexElementSize.SixteenBits
-                GraphicsDevice.DrawUserIndexedPrimitives(Microsoft.Xna.Framework.Graphics.PrimitiveType.TriangleList, heightMap.getVertices(), 0, heightMap.getVertices().Length, heightMap.getIndices(), 0, heightMap.getIndices().Length / 3, VertexPositionColor.VertexDeclaration);
-            }
-
-
-            /*-----------------------------Microsoft.Xna.Framework.Graphics----*/
-
-
-
 
             base.Draw(gameTime);
         }
