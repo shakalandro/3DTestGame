@@ -205,6 +205,26 @@
       <Output>obj\x86\Debug\Models\terrainUntextured_0.xml</Output>
       <Time>2012-05-10T11:55:30.051-07:00</Time>
     </Item>
+    <Item>
+      <Source>Models\terrainGabes.fbx</Source>
+      <Name>Models\terrainGabes</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\terrainGabes.xnb</Output>
+      <Time>2012-05-10T12:24:02.354-07:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\terrainGabes_0.xml</Key>
+        <Value>2012-05-10T12:24:37.2012-07:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\terrainGabes.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\terrainGabes_0.xml</Output>
+      <Time>2012-05-10T12:24:02.354-07:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

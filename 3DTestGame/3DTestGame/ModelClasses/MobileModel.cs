@@ -20,7 +20,7 @@ namespace _3DTestGame
 
         public float speed;
 
-        private static float DEFAULT_SPEED = 0.01f;
+        private static float DEFAULT_SPEED = 0.1f;
 
         public MobileModel(Game game, Model m, Boolean t, Vector3 pos, float scale)
             : this(game, m, t, pos, scale, false, DEFAULT_SPEED) { }
