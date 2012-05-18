@@ -21,16 +21,18 @@ namespace _3DTestGame
         public Vector3 up { get; protected set; }
         public float moveSpeed { 
             get {
-                return 0.05f;
+                return 1f;
             }
         }
         public float rotateSpeed { 
             get {
-                return 0.01f;
+                return 0.02f;
             }
         }
 
         public UserInput input;
+        private EntityModel fixation;
+        private float fixationDistance;
 
         public Camera(Game game, Vector3 pos, Vector3 dir, Vector3 up) : base(game)
         {
@@ -65,18 +67,34 @@ namespace _3DTestGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Update(GameTime gameTime)
         {
+            if (this.fixation != null)
+            {
+                updateFixation(gameTime);
+            } 
+            else
+            {
+                updateFreeRoam(gameTime);
+            }
+            CreateLookAt();
+            base.Update(gameTime);
+        }
+
+        public void updateFreeRoam(GameTime gameTime)
+        {
             // Move the camera using WASD and QE for forward and backward
             if (input.up())
             {
                 pos += up * moveSpeed;
-            } else if (input.down())
+            }
+            else if (input.down())
             {
                 pos -= up * moveSpeed;
             }
             if (input.left())
             {
                 pos += Vector3.Cross(up, dir) * moveSpeed;
-            } else if (input.right()) 
+            }
+            else if (input.right())
             {
                 pos -= Vector3.Cross(up, dir) * moveSpeed;
             }
@@ -108,8 +126,26 @@ namespace _3DTestGame
                     dir = Vector3.Transform(dir, Matrix.CreateFromAxisAngle(up, -rotateSpeed));
                 }
             }
-            CreateLookAt();
-            base.Update(gameTime);
+        }
+
+        public void updateFixation(GameTime gameTime)
+        {
+            Vector3 newDir = new Vector3(fixation.forward.X, 0f, fixation.forward.Z);
+            newDir.Normalize();
+            newDir.Y = -0.7f;
+            this.dir = newDir;
+
+            this.pos = new Vector3(
+                fixation.entity.Position.X - (this.dir.X * fixationDistance),
+                fixation.entity.Position.Y + fixationDistance,
+                fixation.entity.Position.Z - (this.dir.Z * fixationDistance)
+            );
+        }
+
+        public void fixate(EntityModel m, float followDistance)
+        {
+            this.fixation = m;
+            this.fixationDistance = followDistance;
         }
     }
 }

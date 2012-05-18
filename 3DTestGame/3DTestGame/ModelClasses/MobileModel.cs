@@ -10,7 +10,7 @@ namespace _3DTestGame
 {
     public class MobileModel : PhysicalModel
     {
-        private IInput input
+        private IInput input    
         {
             get
             {

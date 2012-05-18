@@ -8,15 +8,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
-/*
-using JigLibX.Physics;
-using JigLibX.Collision;
-using JigLibX.Geometry;
-using JigLibX.Utils;
-using JigLibX.Math;
- */
 
-/*------BEPU includes ------*/
 using BEPUphysics.Collidables;
 using BEPUphysics.Collidables.MobileCollidables;
 using BEPUphysics.Entities.Prefabs;
@@ -35,25 +27,13 @@ namespace _3DTestGame
     {
         public readonly Boolean DEBUG = true;
 
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        public GraphicsDeviceManager graphics;
+        public SpriteBatch spriteBatch;
         public Camera camera;
         public UserInput input;
 
-        //public PhysicsSystem phys;
-
-        public DebugDrawer physDebug;
-
-
-        /*-----BEPU Physics fields-----*/
-        Space space;
-        public Model terrain;
-        public Model cube;
-        Box testBox;
-
-        
-
-        /*-------------*/
+        public Space space;
+        public BasicModel terrain;
 
         public ISTestGame()
         {
@@ -70,36 +50,18 @@ namespace _3DTestGame
         protected override void Initialize()
         {
             this.IsMouseVisible = true;
+            this.Window.AllowUserResizing = true;
 
-            /*
-            this.phys = new PhysicsSystem();
-            this.phys.CollisionSystem = new CollisionSystemSAP();
-             */
+            // Create Services
             this.input = new UserInput(this);
             this.camera = new Camera(this, new Vector3(25f, 25f, 25f),
                 new Vector3(-1f, -1f, -1f), Vector3.Up);
-            this.physDebug = new DebugDrawer(this, this.camera);
-            this.physDebug.Enabled = true;
+
             Components.Add(this.input);
             Components.Add(this.camera);
             Services.AddService(typeof(ICamera), this.camera);
             Services.AddService(typeof(IInput), this.input);
-            Components.Add(this.physDebug);
 
-            /*-----BEPU Physics stuff-----*/
-
-            /*
-            Components.Add(new PlaneModel(this, this.Content.Load<Model>(@"Models/terrainUntextured"), false,
-
-                    new Vector3(0f, 0f, 0f)));
-            Components.Add(new MobileModel(this, this.Content.Load<Model>(@"Models/cobra"), false,
-                    new Vector3(0f, 10f, 0f), 0.5f, false, 0.01f));
-            
-            // Turn off backface culling for now
-            RasterizerState rs = new RasterizerState();
-            rs.CullMode = CullMode.None;
-            GraphicsDevice.RasterizerState = rs;
-            */
             base.Initialize();
         }
 
@@ -112,38 +74,28 @@ namespace _3DTestGame
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-
-
-            /*-----BEPU Physics content loading-----*/
-            terrain = Content.Load<Model>(@"Models/terrainUntextured");
-            cube = Content.Load<Model>(@"Models/cube");
-
             space = new Space();
-
-            //set the gravity of space
             space.ForceUpdater.Gravity = new Vector3(0, -9.81f, 0);
 
-            //Sample 
-            //Box ground = new Box(Vector3.Zero, 30, 1, 30);
-            //space.Add(ground);
-
-
+            terrain = new BasicModel(this, Content.Load<Model>(@"Models/terrainTextured"), true);
             Vector3[] vertices;
             int[] indices;
-            TriangleMesh.GetVerticesAndIndicesFromModel(terrain, out vertices, out indices);
-            //Give the mesh information to a new StaticMesh.  
-            //Give it a transformation which scoots it down below the kinematic box entity we created earlier.
-            var mesh = new StaticMesh(vertices, indices, new AffineTransform(new Vector3(0, -40, 0)));
+            TriangleMesh.GetVerticesAndIndicesFromModel(terrain.model, out vertices, out indices);
+            // rotate the computed vertices because of the blender to xna axis issue
+            for (int i = 0; i < vertices.Count(); i++)
+            {
+                vertices[i] = Vector3.Transform(vertices[i], Matrix.CreateRotationX(-MathHelper.PiOver2));
+            }
+            var terrainMeshEntity = new StaticMesh(vertices, indices, new AffineTransform(new Vector3(0, -40, 0)));
+            terrain.transform = terrainMeshEntity.WorldTransform.Matrix;
+            space.Add(terrainMeshEntity);
 
-            //Add it to the space!
-            space.Add(mesh);
-            //Make it visible too.
-            Components.Add(new StaticModel(terrain, mesh.WorldTransform.Matrix, this));
+            ControllableModel cube = new ControllableModel(this, Content.Load<Model>(@"Models/cube"),
+                    new Box(new Vector3(0, 0, 0), 1, 1, 1, 1));
+            space.Add(cube.entity);
 
-            testBox = new Box(new Vector3(0, 12, 0), 1, 1, 1, 1);
-            space.Add(testBox);
-            
-
+            Components.Add(terrain);
+            Components.Add(cube);
             /*maybe add later----- game logic ------*/
             //Hook an event handler to an entity to handle some game logic.
             //Refer to the Entity Events documentation for more information.
@@ -153,6 +105,7 @@ namespace _3DTestGame
 
 
             //Go through the list of entities in the space and create a graphical representation for them.
+            /*
             foreach (Entity e in space.Entities)
             {
                 Box box = e as Box;
@@ -166,12 +119,8 @@ namespace _3DTestGame
                     e.Tag = model; //set the object tag of this entity to the model so that it's easy to delete the graphics component later if the entity is removed.
                 }
             }
-
+            */
         }
-
-
-
-
 
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload
@@ -207,7 +156,6 @@ namespace _3DTestGame
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            // TODO: Add your drawing code here
 
             base.Draw(gameTime);
         }

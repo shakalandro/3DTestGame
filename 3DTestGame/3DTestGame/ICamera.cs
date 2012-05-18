@@ -15,5 +15,6 @@ namespace _3DTestGame
         Vector3 up { get; }
         float moveSpeed { get; }
         float rotateSpeed { get; }
+        void fixate(EntityModel comp, float distance);
     }
 }

@@ -9,7 +9,7 @@ namespace _3DTestGame
 {
     public class UserInput : Microsoft.Xna.Framework.GameComponent, IInput
     {
-        public readonly double MOUSE_SENSITIVITY = 5;
+        public readonly double MOUSE_SENSITIVITY = 1;
 
         public KeyboardState keyState { get; protected set; }
 

@@ -15,6 +15,8 @@ namespace _3DTestGame
 
         public Model model { get; protected set; }
         public Boolean textured;
+        public Matrix transform;
+        public Vector3 forward;
 
         public ICamera camera
         {
@@ -24,10 +26,14 @@ namespace _3DTestGame
             }
         }
 
-        public BasicModel(Game game, Model m, Boolean textured) : base(game)
+        public BasicModel(Game game, Model m, Boolean textured) : this(game, m, Matrix.Identity, textured) {}
+
+        public BasicModel(Game game, Model m, Matrix transform, Boolean textured) : base(game)
         {
+            this.transform = transform;
             this.model = m;
             this.textured = textured;
+            this.forward = this.camera.dir;
         }
 
         public override void Update(GameTime gameTime)
@@ -56,9 +62,12 @@ namespace _3DTestGame
 
         public virtual Matrix GetWorld()
         {
-            return Matrix.Identity;
+            return Matrix.CreateRotationX(-MathHelper.PiOver2) * this.transform;
         }
 
-        public virtual void ChangeEffect(BasicEffect e) {}
+        public virtual void ChangeEffect(BasicEffect e)
+        {
+            e.TextureEnabled = this.textured;
+        }
     }
 }
