@@ -262,6 +262,15 @@
       <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\terrainMap_0.xnb</Output>
       <Time>2012-05-16T10:43:21.759-07:00</Time>
     </Item>
+    <Item>
+      <Source>Textures\water.jpg</Source>
+      <Name>Textures\water</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Textures\water.xnb</Output>
+      <Time>2012-05-23T04:09:11.764-07:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

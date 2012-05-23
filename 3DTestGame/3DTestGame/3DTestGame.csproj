@@ -126,6 +126,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="ISTestGame.cs" />
     <Compile Include="UserInput.cs" />
+    <Compile Include="Water.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

@@ -35,6 +35,8 @@ namespace _3DTestGame
         public Space space;
         public BasicModel terrain;
 
+        public Water water;
+
         public ISTestGame()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -56,7 +58,9 @@ namespace _3DTestGame
             this.input = new UserInput(this);
             this.camera = new Camera(this, new Vector3(25f, 25f, 25f),
                 new Vector3(-1f, -1f, -1f), Vector3.Up);
+            water = new Water(this);
 
+            Components.Add(water);
             Components.Add(this.input);
             Components.Add(this.camera);
             Services.AddService(typeof(ICamera), this.camera);
@@ -78,6 +82,26 @@ namespace _3DTestGame
             space.ForceUpdater.Gravity = new Vector3(0, -9.81f, 0);
 
             terrain = new BasicModel(this, Content.Load<Model>(@"Models/terrainTextured"), true);
+            StaticMesh terrainMesh = GetTerrainMesh(terrain);
+            terrain.transform = terrainMesh.WorldTransform.Matrix;
+            space.Add(terrainMesh);
+
+            ControllableModel cube = new ControllableModel(this, Content.Load<Model>(@"Models/cube"),
+                    new Box(new Vector3(0, 0, 0), 1, 1, 1, 2));
+            space.Add(cube.entity);
+
+            Components.Add(terrain);
+            Components.Add(cube);
+
+            // turn off backface culling
+            //RasterizerState rs = new RasterizerState();
+            //rs.CullMode = CullMode.None;
+            //GraphicsDevice.RasterizerState = rs;
+        }
+
+        // Returns a static mesh for the given model with the XNA/Blender rotation hack applied
+        private StaticMesh GetTerrainMesh(BasicModel t)
+        {
             Vector3[] vertices;
             int[] indices;
             TriangleMesh.GetVerticesAndIndicesFromModel(terrain.model, out vertices, out indices);
@@ -86,40 +110,7 @@ namespace _3DTestGame
             {
                 vertices[i] = Vector3.Transform(vertices[i], Matrix.CreateRotationX(-MathHelper.PiOver2));
             }
-            var terrainMeshEntity = new StaticMesh(vertices, indices, new AffineTransform(new Vector3(0, -40, 0)));
-            terrain.transform = terrainMeshEntity.WorldTransform.Matrix;
-            space.Add(terrainMeshEntity);
-
-            ControllableModel cube = new ControllableModel(this, Content.Load<Model>(@"Models/cube"),
-                    new Box(new Vector3(0, 0, 0), 1, 1, 1, 1));
-            space.Add(cube.entity);
-
-            Components.Add(terrain);
-            Components.Add(cube);
-            /*maybe add later----- game logic ------*/
-            //Hook an event handler to an entity to handle some game logic.
-            //Refer to the Entity Events documentation for more information.
-            //Box deleterBox = new Box(new Vector3(5, 2, 0), 3, 3, 3);
-            //space.Add(deleterBox);
-           // deleterBox.CollisionInformation.Events.InitialCollisionDetected += HandleCollision;
-
-
-            //Go through the list of entities in the space and create a graphical representation for them.
-            /*
-            foreach (Entity e in space.Entities)
-            {
-                Box box = e as Box;
-                if (box != null) //This won't create any graphics for an entity that isn't a box since the model being used is a box.
-                {
-
-                    Matrix scaling = Matrix.CreateScale(box.Width, box.Height, box.Length); //Since the cube model is 1x1x1, it needs to be scaled to match the size of each individual box.
-                    EntityModel model = new ControledModel(e, cube, scaling, this);
-                    //Add the drawable game component for this entity to the game.
-                    Components.Add(model);
-                    e.Tag = model; //set the object tag of this entity to the model so that it's easy to delete the graphics component later if the entity is removed.
-                }
-            }
-            */
+            return new StaticMesh(vertices, indices, new AffineTransform(new Vector3(0, -40, 0)));
         }
 
         /// <summary>
