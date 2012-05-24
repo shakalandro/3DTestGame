@@ -36,6 +36,7 @@ namespace _3DTestGame
         public BasicModel terrain;
 
         public Water water;
+        public Water waterfall;
 
         public ISTestGame()
         {
@@ -58,9 +59,15 @@ namespace _3DTestGame
             this.input = new UserInput(this);
             this.camera = new Camera(this, new Vector3(25f, 25f, 25f),
                 new Vector3(-1f, -1f, -1f), Vector3.Up);
-            water = new Water(this);
+
+            water = new Water(this, Matrix.CreateTranslation(new Vector3(-10, -42, -40)), 60, 50, 2, 8);
+
+            Matrix waterfallTranslate = Matrix.CreateTranslation(new Vector3(3f, -28.5f, -37.5f));
+            Matrix waterfallRotate = Matrix.CreateRotationX(MathHelper.PiOver2 - MathHelper.PiOver4 / 4);
+            waterfall = new Water(this, waterfallRotate * waterfallTranslate, 8, 20, 0.5f, 8);
 
             Components.Add(water);
+            Components.Add(waterfall);
             Components.Add(this.input);
             Components.Add(this.camera);
             Services.AddService(typeof(ICamera), this.camera);
@@ -81,13 +88,13 @@ namespace _3DTestGame
             space = new Space();
             space.ForceUpdater.Gravity = new Vector3(0, -9.81f, 0);
 
-            terrain = new BasicModel(this, Content.Load<Model>(@"Models/terrainTextured"), true);
+            terrain = new BasicModel(this, Content.Load<Model>(@"Models/terrain"), true);
             StaticMesh terrainMesh = GetTerrainMesh(terrain);
             terrain.transform = terrainMesh.WorldTransform.Matrix;
             space.Add(terrainMesh);
 
             ControllableModel cube = new ControllableModel(this, Content.Load<Model>(@"Models/cube"),
-                    new Box(new Vector3(0, 0, 0), 1, 1, 1, 2));
+                    new Box(new Vector3(0, -20, 0), 1, 1, 1, 2));
             space.Add(cube.entity);
 
             Components.Add(terrain);

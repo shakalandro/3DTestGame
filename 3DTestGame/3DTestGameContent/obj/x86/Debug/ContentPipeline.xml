@@ -2,15 +2,6 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline" xmlns:Framework="Microsoft.Xna.Framework" xmlns:Processors="Microsoft.Xna.Framework.Content.Pipeline.Processors">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>Models\fernMap.png</Source>
-      <Name>Models\fernMap</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\fernMap.xnb</Output>
-      <Time>2012-05-04T10:40:30.062-07:00</Time>
-    </Item>
-    <Item>
       <Source>Models\Heightmap2.bmp</Source>
       <Name>Models\Heightmap2</Name>
       <Importer>TextureImporter</Importer>
@@ -18,19 +9,6 @@
       <Options>None</Options>
       <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\Heightmap2.xnb</Output>
       <Time>2012-05-10T11:55:30.04-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\terrain2.fbx</Source>
-      <Name>Models\terrain2</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\terrain2.xnb</Output>
-      <Time>2012-05-09T04:32:11.2885-07:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\Models\terrain2_0.xml</Key>
-        <Value>2012-05-16T10:48:46.102-07:00</Value>
-      </Dependency>
     </Item>
     <Item>
       <Source>Models\cube.fbx</Source>
@@ -47,32 +25,6 @@
       <Request>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\CubeMap_0.xnb</Request>
     </Item>
     <Item>
-      <Source>Models\fernTWO.fbx</Source>
-      <Name>Models\fernTWO</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\fernTWO.xnb</Output>
-      <Time>2012-05-04T10:40:30.065-07:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\Models\fernTWO_0.xml</Key>
-        <Value>2012-05-16T10:48:47.514-07:00</Value>
-      </Dependency>
-    </Item>
-    <Item>
-      <Source>Models\palmTree.fbx</Source>
-      <Name>Models\palmTree</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\palmTree.xnb</Output>
-      <Time>2012-05-09T02:23:25.814-07:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\Models\palmTree_0.xml</Key>
-        <Value>2012-05-16T10:48:48.002-07:00</Value>
-      </Dependency>
-    </Item>
-    <Item>
       <Source>Models\fernCubeTexture.fbx</Source>
       <Name>Models\fernCubeTexture</Name>
       <Importer>FbxImporter</Importer>
@@ -83,19 +35,6 @@
       <Dependency>
         <Key>obj\x86\Debug\Models\fernCubeTexture_0.xml</Key>
         <Value>2012-05-16T10:48:48.211-07:00</Value>
-      </Dependency>
-    </Item>
-    <Item>
-      <Source>Models\fernUntextured.fbx</Source>
-      <Name>Models\fernUntextured</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\fernUntextured.xnb</Output>
-      <Time>2012-05-09T02:23:25.813-07:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\Models\fernUntextured_0.xml</Key>
-        <Value>2012-05-16T10:48:48.363-07:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -112,32 +51,6 @@
       </Dependency>
     </Item>
     <Item>
-      <Source>Models\terrainUntextured.fbx</Source>
-      <Name>Models\terrainUntextured</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\terrainUntextured.xnb</Output>
-      <Time>2012-05-10T11:55:30.051-07:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\Models\terrainUntextured_0.xml</Key>
-        <Value>2012-05-16T10:48:49.093-07:00</Value>
-      </Dependency>
-    </Item>
-    <Item>
-      <Source>Models\terrainGabes.fbx</Source>
-      <Name>Models\terrainGabes</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\terrainGabes.xnb</Output>
-      <Time>2012-05-10T12:24:02.354-07:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\Models\terrainGabes_0.xml</Key>
-        <Value>2012-05-16T10:48:49.602-07:00</Value>
-      </Dependency>
-    </Item>
-    <Item>
       <Source>Models\effects.fx</Source>
       <Name>Models\effects</Name>
       <Importer>EffectImporter</Importer>
@@ -145,13 +58,6 @@
       <Options>None</Options>
       <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\effects.xnb</Output>
       <Time>2012-05-10T11:55:30.046-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\terrain2.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\terrain2_0.xml</Output>
-      <Time>2012-05-09T04:32:11.2885-07:00</Time>
     </Item>
     <Item>
       <Source>Models\cube.fbx</Source>
@@ -177,32 +83,11 @@
       <Time>2012-05-03T19:53:44.091-07:00</Time>
     </Item>
     <Item>
-      <Source>Models\fernTWO.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\fernTWO_0.xml</Output>
-      <Time>2012-05-04T10:40:30.065-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\palmTree.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\palmTree_0.xml</Output>
-      <Time>2012-05-09T02:23:25.814-07:00</Time>
-    </Item>
-    <Item>
       <Source>Models\fernCubeTexture.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\fernCubeTexture_0.xml</Output>
       <Time>2012-05-09T02:23:25.79-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\fernUntextured.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\fernUntextured_0.xml</Output>
-      <Time>2012-05-09T02:23:25.813-07:00</Time>
     </Item>
     <Item>
       <Source>Models\cobra.fbx</Source>
@@ -212,39 +97,43 @@
       <Time>2012-05-09T04:33:09.3805-07:00</Time>
     </Item>
     <Item>
-      <Source>Models\terrainUntextured.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\terrainUntextured_0.xml</Output>
-      <Time>2012-05-10T11:55:30.051-07:00</Time>
+      <Source>Textures\water.jpg</Source>
+      <Name>Textures\water</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Textures\water.xnb</Output>
+      <Time>2012-05-23T04:09:11.764-07:00</Time>
     </Item>
     <Item>
-      <Source>Models\terrainGabes.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\terrainGabes_0.xml</Output>
-      <Time>2012-05-10T12:24:02.354-07:00</Time>
+      <Source>Effects\PartialReflection.fx</Source>
+      <Name>Effects\PartialReflection</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Effects\PartialReflection.xnb</Output>
+      <Time>2012-05-23T19:14:24.624-07:00</Time>
     </Item>
     <Item>
-      <Source>Models\terrainTextured.fbx</Source>
-      <Name>Models\terrainTextured</Name>
+      <Source>Models\terrain.fbx</Source>
+      <Name>Models\terrain</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\terrainTextured.xnb</Output>
-      <Time>2012-05-16T10:43:21.772-07:00</Time>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\terrain.xnb</Output>
+      <Time>2012-05-24T11:30:49.926-07:00</Time>
       <Dependency>
-        <Key>obj\x86\Debug\Models\terrainTextured_0.xml</Key>
-        <Value>2012-05-16T10:51:18.374-07:00</Value>
+        <Key>obj\x86\Debug\Models\terrain_0.xml</Key>
+        <Value>2012-05-24T11:30:55.137-07:00</Value>
       </Dependency>
       <Request>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\terrainMap_0.xnb</Request>
     </Item>
     <Item>
-      <Source>Models\terrainTextured.fbx</Source>
+      <Source>Models\terrain.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\terrainTextured_0.xml</Output>
-      <Time>2012-05-16T10:43:21.772-07:00</Time>
+      <Output>obj\x86\Debug\Models\terrain_0.xml</Output>
+      <Time>2012-05-24T11:30:49.926-07:00</Time>
     </Item>
     <Item>
       <Source>Models\terrainMap.png</Source>
@@ -260,16 +149,7 @@
       </Parameters>
       <Options>None</Options>
       <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\terrainMap_0.xnb</Output>
-      <Time>2012-05-16T10:43:21.759-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\water.jpg</Source>
-      <Name>Textures\water</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Textures\water.xnb</Output>
-      <Time>2012-05-23T04:09:11.764-07:00</Time>
+      <Time>2012-05-24T01:02:30.825-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
