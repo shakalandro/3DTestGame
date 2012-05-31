@@ -42,6 +42,7 @@ namespace _3DTestGame
             base.Update(gameTime);
         } 
 
+
         public Boolean up()
         {
             return keyState.IsKeyDown(Keys.W);

@@ -61,7 +61,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BEPUphysics">
-      <HintPath>..\..\lib\BEPUphysics.dll</HintPath>
+      <HintPath>..\..\..\..\BEPUphysics v1.1.0 (1)\x86\Release\BEPUphysics.dll</HintPath>
     </Reference>
     <Reference Include="JigLibX">
       <HintPath>..\..\lib\JigLibX 0.3.1\JigLibX\bin\x86\Debug\JigLibX.dll</HintPath>
@@ -120,6 +120,7 @@
     <Compile Include="DebugDrawer.cs" />
     <Compile Include="ICamera.cs" />
     <Compile Include="IInput.cs" />
+    <Compile Include="ModelClasses\CoinModel.cs" />
     <Compile Include="ModelClasses\ControllableModel.cs" />
     <Compile Include="ModelClasses\EntityModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

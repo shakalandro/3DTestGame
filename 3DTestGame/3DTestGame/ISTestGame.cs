@@ -110,6 +110,33 @@ namespace _3DTestGame
                     new Box(new Vector3(0, 10, 0), 1, 1, 1, 2));
             space.Add(cube.entity);
 
+            //Adding skydome
+            Matrix skyDomeRotate = Matrix.CreateRotationX(MathHelper.Pi);
+
+            //create rotation and translation ??
+
+            BasicModel skyDome = new BasicModel(this, Content.Load<Model>(@"Models/skyDome"), skyDomeRotate, true);
+
+            //adding rings
+            /*void HandleCollision(EntityCollidable sender, Collidable other, CollidablePairHandler pair) 
+            {
+                var otherEntityInformation = other as EntityCollidable;
+                if (otherEntityInformation != null)
+                {
+                    space.Remove(otherEntityInformation.Entity);
+                    Components.Remove((EntityModel)otherEntityInformation.Entity.Tag);
+                }
+            }
+            */
+            Random random = new Random();
+            for (int i = 0; i < 20; i++ )
+            {
+                CoinModel oneRing = new CoinModel(this, Content.Load<Model>(@"Models/bigRing"), new Box(new Vector3(random.Next(-80, 80), -20, random.Next(-80, 80)), 1, 1, 1, 1));
+                space.Add(oneRing.entity);
+                Components.Add(oneRing);
+            }
+            
+            Components.Add(skyDome);
             Components.Add(terrain);
             Components.Add(cube);
 
