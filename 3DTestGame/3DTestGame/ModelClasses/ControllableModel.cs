@@ -17,9 +17,11 @@ namespace _3DTestGame
     {
        
         private static float DEFAULT_SPEED = .33f;
-        private static float JUMP_THRESHOLD = 0.5f;
-        private static float ROTATION_SPEED = 0.1f; //radians
+        private static float MAX_SPEED = 3f;
+        private static float JUMP_THRESHOLD = 0.1f;
+        private static float ROTATION_SPEED = 0.05f; //radians
 
+        private float lastVelocity;
         public enum MoveMode
         {
             Free, Directional, None
@@ -65,7 +67,9 @@ namespace _3DTestGame
                 updateMoveDirectional(gameTime);
             }
 
-            if (input.spaceKey() && Math.Abs(entity.LinearVelocity.Y) < JUMP_THRESHOLD)
+            lastVelocity = entity.LinearVelocity.Y > 0 ? 1 : -1;
+
+            if (input.spaceKey() && Math.Abs(entity.LinearVelocity.Y) < JUMP_THRESHOLD && lastVelocity < 0)
             {
                 entity.LinearMomentum = Vector3.Add(entity.LinearMomentum, new Vector3(0f, 20f, 0f));
             }
@@ -91,6 +95,13 @@ namespace _3DTestGame
             {
                 this.forward = Vector3.Transform(this.forward, Matrix.CreateRotationY(-ROTATION_SPEED));
             }
+            if (entity.LinearVelocity.Length() > MAX_SPEED)
+            {
+                entity.LinearVelocity.Normalize();
+                Vector3.Multiply(entity.LinearVelocity, MAX_SPEED);
+            }
+            //change the angle to get it right
+            entity.Orientation = Quaternion.CreateFromAxisAngle(Vector3.Up, MathHelper.PiOver2);
         }
 
         private void updateMoveFree(GameTime gameTime)

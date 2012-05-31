@@ -121,10 +121,10 @@
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\terrain.xnb</Output>
-      <Time>2012-05-24T11:30:49.926-07:00</Time>
+      <Time>2012-05-25T10:50:43.816-07:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\terrain_0.xml</Key>
-        <Value>2012-05-24T11:30:55.137-07:00</Value>
+        <Value>2012-05-25T10:50:51.624-07:00</Value>
       </Dependency>
       <Request>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\terrainMap_0.xnb</Request>
     </Item>
@@ -133,7 +133,7 @@
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\terrain_0.xml</Output>
-      <Time>2012-05-24T11:30:49.926-07:00</Time>
+      <Time>2012-05-25T10:50:43.816-07:00</Time>
     </Item>
     <Item>
       <Source>Models\terrainMap.png</Source>
@@ -150,6 +150,97 @@
       <Options>None</Options>
       <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\terrainMap_0.xnb</Output>
       <Time>2012-05-24T01:02:30.825-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\baobabTree.fbx</Source>
+      <Name>Models\baobabTree</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\baobabTree.xnb</Output>
+      <Time>2012-05-24T11:30:49.908-07:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\baobabTree_0.xml</Key>
+        <Value>2012-05-30T18:38:16.094-07:00</Value>
+      </Dependency>
+      <Request>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\baobabTreeMap_0.xnb</Request>
+      <Request>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\baobabTreeLeafMap_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\baobabTree.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\baobabTree_0.xml</Output>
+      <Time>2012-05-24T11:30:49.908-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\baobabTreeMap.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\baobabTreeMap_0.xnb</Output>
+      <Time>2012-05-24T11:30:49.915-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\baobabTreeLeafMap.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\baobabTreeLeafMap_0.xnb</Output>
+      <Time>2012-05-24T11:30:49.91-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\character.fbx</Source>
+      <Name>Models\character</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\character.xnb</Output>
+      <Time>2012-05-25T10:50:43.723-07:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\character_0.xml</Key>
+        <Value>2012-05-30T20:00:50.717-07:00</Value>
+      </Dependency>
+      <Request>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\characterMap_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\character.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\character_0.xml</Output>
+      <Time>2012-05-25T10:50:43.723-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\characterMap.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\characterMap_0.xnb</Output>
+      <Time>2012-05-25T10:50:43.756-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

@@ -132,7 +132,7 @@ namespace _3DTestGame
         {
             Vector3 newDir = new Vector3(fixation.forward.X, 0f, fixation.forward.Z);
             newDir.Normalize();
-            newDir.Y = -0.7f;
+            newDir.Y = -0.5f;
             this.dir = newDir;
 
             this.pos = new Vector3(

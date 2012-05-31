@@ -28,6 +28,8 @@ namespace _3DTestGame
 
         public BasicModel(Game game, Model m, Boolean textured) : this(game, m, Matrix.Identity, textured) {}
 
+        public BasicModel(Game game, Model m, Vector3 position, Boolean textured) : this(game, m, Matrix.CreateTranslation(position), textured) {}
+
         public BasicModel(Game game, Model m, Matrix transform, Boolean textured) : base(game)
         {
             this.transform = transform;

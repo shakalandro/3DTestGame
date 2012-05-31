@@ -25,6 +25,7 @@ namespace _3DTestGame
     /// </summary>
     public class ISTestGame : Microsoft.Xna.Framework.Game
     {
+        public static Random r = new Random();
         public readonly Boolean DEBUG = true;
 
         public GraphicsDeviceManager graphics;
@@ -60,11 +61,11 @@ namespace _3DTestGame
             this.camera = new Camera(this, new Vector3(25f, 25f, 25f),
                 new Vector3(-1f, -1f, -1f), Vector3.Up);
 
-            water = new Water(this, Matrix.CreateTranslation(new Vector3(-10, -42, -40)), 60, 50, 2, 8);
+            water = new Water(this, Matrix.CreateTranslation(new Vector3(-20, -3, -100)), 122, 122, 2, 8);
 
-            Matrix waterfallTranslate = Matrix.CreateTranslation(new Vector3(3f, -28.5f, -37.5f));
+            Matrix waterfallTranslate = Matrix.CreateTranslation(new Vector3(5f, 25.5f, -85.5f));
             Matrix waterfallRotate = Matrix.CreateRotationX(MathHelper.PiOver2 - MathHelper.PiOver4 / 4);
-            waterfall = new Water(this, waterfallRotate * waterfallTranslate, 8, 20, 0.5f, 8);
+            waterfall = new Water(this, waterfallRotate * waterfallTranslate, 20, 40, 0.5f, 8);
 
             Components.Add(water);
             Components.Add(waterfall);
@@ -89,12 +90,24 @@ namespace _3DTestGame
             space.ForceUpdater.Gravity = new Vector3(0, -9.81f, 0);
 
             terrain = new BasicModel(this, Content.Load<Model>(@"Models/terrain"), true);
-            StaticMesh terrainMesh = GetTerrainMesh(terrain);
-            terrain.transform = terrainMesh.WorldTransform.Matrix;
+            StaticMesh terrainMesh = GetTerrainMesh(terrain, Matrix.Identity);
             space.Add(terrainMesh);
 
-            ControllableModel cube = new ControllableModel(this, Content.Load<Model>(@"Models/cube"),
-                    new Box(new Vector3(0, -20, 0), 1, 1, 1, 2));
+            // baobab tree
+            for (int i = 0; i < 5; i++)
+            {
+                Vector3 position = new Vector3((float)(r.NextDouble() * 150 - 50), 0, (float)(r.NextDouble() * 100));
+                Console.WriteLine(position);
+                BasicModel tree = new BasicModel(this, Content.Load<Model>(@"Models/baobabTree"), position, true);
+                StaticMesh treeMesh = GetTerrainMesh(tree, Matrix.CreateTranslation(position));
+                Components.Add(tree);
+            }
+
+            //Box invisibleWall = new Box(Vector3.Zero, 200, 200, 200);
+            //space.Add(invisibleWall);
+
+            ControllableModel cube = new ControllableModel(this, Content.Load<Model>(@"Models/character"),
+                    new Box(new Vector3(0, 10, 0), 1, 1, 1, 2));
             space.Add(cube.entity);
 
             Components.Add(terrain);
@@ -107,7 +120,7 @@ namespace _3DTestGame
         }
 
         // Returns a static mesh for the given model with the XNA/Blender rotation hack applied
-        private StaticMesh GetTerrainMesh(BasicModel t)
+        private StaticMesh GetTerrainMesh(BasicModel t, Matrix transform)
         {
             Vector3[] vertices;
             int[] indices;
@@ -115,9 +128,9 @@ namespace _3DTestGame
             // rotate the computed vertices because of the blender to xna axis issue
             for (int i = 0; i < vertices.Count(); i++)
             {
-                vertices[i] = Vector3.Transform(vertices[i], Matrix.CreateRotationX(-MathHelper.PiOver2));
+                vertices[i] = Vector3.Transform(vertices[i], Matrix.CreateRotationX(-MathHelper.Pi / 2));
             }
-            return new StaticMesh(vertices, indices, new AffineTransform(new Vector3(0, -40, 0)));
+            return new StaticMesh(vertices, indices, new AffineTransform(transform.Translation));
         }
 
         /// <summary>

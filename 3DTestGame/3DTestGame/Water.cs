@@ -152,7 +152,6 @@ namespace _3DTestGame
                 Matrix reverse = Matrix.Invert(transform);
                 Vector3 normalPos = Vector3.Transform(v.Position, reverse);
                 if (Math.Abs(normalPos.Y) >= waveHeight) {
-                    Console.WriteLine("in");
                     vertDirs[i] *= -1;
                 }
                 normalPos = new Vector3(normalPos.X, normalPos.Y + vertDirs[i], normalPos.Z);
