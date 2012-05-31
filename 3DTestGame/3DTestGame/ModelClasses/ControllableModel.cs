@@ -47,7 +47,7 @@ namespace _3DTestGame
             this.moveMode = style;
             if (this.moveMode == MoveMode.Directional)
             {
-                this.camera.fixate(this, 15.0f);
+               // this.camera.fixate(this, 15.0f);
             }
         }
 

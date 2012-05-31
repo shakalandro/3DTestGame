@@ -42,7 +42,7 @@ namespace _3DTestGame
             this.up = up;
             float aspectRatio = Game.Window.ClientBounds.Width / Game.Window.ClientBounds.Height;
             this.projection = Matrix.CreatePerspectiveFieldOfView(
-                MathHelper.PiOver4, aspectRatio, 1, 300);
+                MathHelper.PiOver4, aspectRatio, 1, 700);
             CreateLookAt();
             this.input = ((ISTestGame)game).input;
         }
