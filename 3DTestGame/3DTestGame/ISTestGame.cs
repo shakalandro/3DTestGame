@@ -39,10 +39,15 @@ namespace _3DTestGame
         public Water water;
         public Water waterfall;
 
+        public SpriteBatch hud;
+        public SpriteFont hudFont;
+        public int numRingsHit;
+
         public ISTestGame()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            numRingsHit = 0;
         }
 
         /// <summary>
@@ -74,6 +79,8 @@ namespace _3DTestGame
             Services.AddService(typeof(ICamera), this.camera);
             Services.AddService(typeof(IInput), this.input);
 
+            hud = new SpriteBatch(this.GraphicsDevice);
+
             base.Initialize();
         }
 
@@ -85,6 +92,7 @@ namespace _3DTestGame
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            hudFont = Content.Load<SpriteFont>(@"hudFont");
 
             space = new Space();
             space.ForceUpdater.Gravity = new Vector3(0, -9.81f, 0);
@@ -96,15 +104,12 @@ namespace _3DTestGame
             // baobab tree
             for (int i = 0; i < 5; i++)
             {
-                Vector3 position = new Vector3((float)(r.NextDouble() * 150 - 50), 0, (float)(r.NextDouble() * 100));
+                Vector3 position = new Vector3(r.Next(-80, 80), 0, r.Next(-80, 80));
                 Console.WriteLine(position);
                 BasicModel tree = new BasicModel(this, Content.Load<Model>(@"Models/baobabTree"), position, true);
                 StaticMesh treeMesh = GetTerrainMesh(tree, Matrix.CreateTranslation(position));
                 Components.Add(tree);
             }
-
-            //Box invisibleWall = new Box(Vector3.Zero, 200, 200, 200);
-            //space.Add(invisibleWall);
 
             ControllableModel cube = new ControllableModel(this, Content.Load<Model>(@"Models/character"),
                     new Box(new Vector3(0, 10, 0), 1, 1, 1, 2));
@@ -112,8 +117,6 @@ namespace _3DTestGame
 
             //Adding skydome
             Matrix skyDomeRotate = Matrix.CreateRotationX(MathHelper.Pi);
-
-            //create rotation and translation ??
 
             BasicModel skyDome = new BasicModel(this, Content.Load<Model>(@"Models/skyDome"), skyDomeRotate, true);
 
@@ -128,10 +131,10 @@ namespace _3DTestGame
                 }
             }
             */
-            Random random = new Random();
             for (int i = 0; i < 20; i++ )
             {
-                CoinModel oneRing = new CoinModel(this, Content.Load<Model>(@"Models/bigRing"), new Box(new Vector3(random.Next(-80, 80), -20, random.Next(-80, 80)), 1, 1, 1, 1));
+                CoinModel oneRing = new CoinModel(this, Content.Load<Model>(@"Models/bigRing"),
+                    new Box(new Vector3(r.Next(-80, 80), 30, r.Next(-80, 80)), 1, 6, 1, 1));
                 space.Add(oneRing.entity);
                 Components.Add(oneRing);
             }
@@ -196,6 +199,13 @@ namespace _3DTestGame
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             base.Draw(gameTime);
+
+            hud.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.Default, RasterizerState.CullNone);
+            hud.DrawString(hudFont, "3D Test Game by: Roy,Gabe,Sean", Vector2.Zero, Color.White);
+            hud.DrawString(hudFont, "Coins: " + numRingsHit, new Vector2(GraphicsDevice.Viewport.Bounds.Width - 100, 0), Color.White);
+            hud.End();
+
+            this.GraphicsDevice.BlendState = BlendState.Opaque;
         }
     }
 }

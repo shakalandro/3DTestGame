@@ -106,6 +106,11 @@ namespace _3DTestGame
             {
                 pos -= dir * moveSpeed;
             }
+            updateMouseDrag(gameTime);
+        }
+
+        public void updateMouseDrag(GameTime gameTime)
+        {
             // Rotate the camera using the mouse
             if (input.leftClick())
             {
@@ -130,16 +135,23 @@ namespace _3DTestGame
 
         public void updateFixation(GameTime gameTime)
         {
-            Vector3 newDir = new Vector3(fixation.forward.X, 0f, fixation.forward.Z);
-            newDir.Normalize();
-            newDir.Y = -0.5f;
-            this.dir = newDir;
+            if (!input.leftClick())
+            {
+                Vector3 newDir = new Vector3(fixation.forward.X, 0f, fixation.forward.Z);
+                newDir.Normalize();
+                newDir.Y = -0.5f;
+                this.dir = newDir;
 
-            this.pos = new Vector3(
-                fixation.entity.Position.X - (this.dir.X * fixationDistance),
-                fixation.entity.Position.Y + fixationDistance,
-                fixation.entity.Position.Z - (this.dir.Z * fixationDistance)
-            );
+                this.pos = new Vector3(
+                    fixation.entity.Position.X - (this.dir.X * fixationDistance),
+                    fixation.entity.Position.Y + fixationDistance,
+                    fixation.entity.Position.Z - (this.dir.Z * fixationDistance)
+                );
+            }
+            else
+            {
+                updateMouseDrag(gameTime);
+            }
         }
 
         public void fixate(EntityModel m, float followDistance)

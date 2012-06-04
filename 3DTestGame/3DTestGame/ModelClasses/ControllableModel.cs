@@ -49,7 +49,7 @@ namespace _3DTestGame
             this.moveMode = style;
             if (this.moveMode == MoveMode.Directional)
             {
-               // this.camera.fixate(this, 15.0f);
+               this.camera.fixate(this, 15.0f);
             }
         }
 
@@ -73,7 +73,13 @@ namespace _3DTestGame
             {
                 entity.LinearMomentum = Vector3.Add(entity.LinearMomentum, new Vector3(0f, 20f, 0f));
             }
-            
+            if (this.entity.Position.X < -100 || this.entity.Position.X > 100 ||
+                    this.entity.Position.Z < -100 || this.entity.Position.Z > 100 ||
+                    this.entity.Position.Y < -5)
+            {
+                this.entity.Position = new Vector3(0, 1, 0);
+                this.entity.LinearVelocity = Vector3.Zero;
+            }
             base.Update(gameTime);
         }
 
@@ -101,7 +107,12 @@ namespace _3DTestGame
                 Vector3.Multiply(entity.LinearVelocity, MAX_SPEED);
             }
             //change the angle to get it right
-            entity.Orientation = Quaternion.CreateFromAxisAngle(Vector3.Up, MathHelper.PiOver2);
+
+            entity.Orientation = Quaternion.Slerp(
+                entity.Orientation * 10,
+                Quaternion.CreateFromAxisAngle(Vector3.Up, (float)Math.Atan2(camera.dir.X, camera.dir.Z)),
+                0.5f
+            );
         }
 
         private void updateMoveFree(GameTime gameTime)

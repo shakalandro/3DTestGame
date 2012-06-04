@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline" xmlns:Framework="Microsoft.Xna.Framework" xmlns:Processors="Microsoft.Xna.Framework.Content.Pipeline.Processors">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
       <Source>Models\cube.fbx</Source>
@@ -8,7 +8,12 @@
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\cube.xnb</Output>
-      <Time>0001-01-01T00:00:00</Time>
+      <Time>2012-05-03T19:53:44.093-07:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\cube_0.xml</Key>
+        <Value>2012-06-03T21:47:18.4086-07:00</Value>
+      </Dependency>
+      <Request>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\CubeMap_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\fernCubeTexture.fbx</Source>
@@ -17,7 +22,11 @@
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\fernCubeTexture.xnb</Output>
-      <Time>0001-01-01T00:00:00</Time>
+      <Time>2012-05-09T02:23:25.79-07:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\fernCubeTexture_0.xml</Key>
+        <Value>2012-06-03T21:47:19.3386-07:00</Value>
+      </Dependency>
     </Item>
     <Item>
       <Source>Models\cobra.fbx</Source>
@@ -26,7 +35,11 @@
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\cobra.xnb</Output>
-      <Time>0001-01-01T00:00:00</Time>
+      <Time>2012-05-09T04:33:09.3805-07:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\cobra_0.xml</Key>
+        <Value>2012-06-03T21:47:19.4986-07:00</Value>
+      </Dependency>
     </Item>
     <Item>
       <Source>Models\terrain.fbx</Source>
@@ -35,16 +48,108 @@
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\terrain.xnb</Output>
-      <Time>0001-01-01T00:00:00</Time>
+      <Time>2012-05-25T10:50:43.816-07:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\terrain_0.xml</Key>
+        <Value>2012-06-03T21:47:20.4726-07:00</Value>
+      </Dependency>
+      <Request>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\terrainMap_0.xnb</Request>
     </Item>
     <Item>
-      <Source>Models\skyDome.fbx</Source>
-      <Name>Models\skyDome</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
+      <Source>Models\Heightmap2.bmp</Source>
+      <Name>Models\Heightmap2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\skyDome.xnb</Output>
-      <Time>0001-01-01T00:00:00</Time>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\Heightmap2.xnb</Output>
+      <Time>2012-05-10T11:55:30.04-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\water.jpg</Source>
+      <Name>Textures\water</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Textures\water.xnb</Output>
+      <Time>2012-05-23T04:09:11.764-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\effects.fx</Source>
+      <Name>Models\effects</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\effects.xnb</Output>
+      <Time>2012-05-10T11:55:30.046-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Effects\PartialReflection.fx</Source>
+      <Name>Effects\PartialReflection</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Effects\PartialReflection.xnb</Output>
+      <Time>2012-05-23T19:14:24.624-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\cube.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\cube_0.xml</Output>
+      <Time>2012-05-03T19:53:44.093-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\CubeMap.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\CubeMap_0.xnb</Output>
+      <Time>2012-05-03T19:53:44.091-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\fernCubeTexture.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\fernCubeTexture_0.xml</Output>
+      <Time>2012-05-09T02:23:25.79-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\cobra.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\cobra_0.xml</Output>
+      <Time>2012-05-09T04:33:09.3805-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\terrain.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\terrain_0.xml</Output>
+      <Time>2012-05-25T10:50:43.816-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\terrainMap.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\terrainMap_0.xnb</Output>
+      <Time>2012-05-24T01:02:30.825-07:00</Time>
     </Item>
     <Item>
       <Source>Models\baobabTree.fbx</Source>
@@ -53,18 +158,174 @@
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\baobabTree.xnb</Output>
-      <Time>0001-01-01T00:00:00</Time>
+      <Time>2012-05-24T11:30:49.908-07:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\baobabTree_0.xml</Key>
+        <Value>2012-06-03T21:48:40.5946-07:00</Value>
+      </Dependency>
+      <Request>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\baobabTreeMap_0.xnb</Request>
+      <Request>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\baobabTreeLeafMap_0.xnb</Request>
     </Item>
     <Item>
-      <Source>Models\character.fbx</Source>
-      <Name>Models\ring</Name>
+      <Source>Models\bigRing.fbx</Source>
+      <Name>Models\bigRing</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\ring.xnb</Output>
-      <Time>0001-01-01T00:00:00</Time>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\bigRing.xnb</Output>
+      <Time>2012-05-31T10:12:47.588-07:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\bigRing_0.xml</Key>
+        <Value>2012-06-03T21:48:42.8004-07:00</Value>
+      </Dependency>
+      <Request>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\ringMap_0.xnb</Request>
     </Item>
-    <BuildSuccessful>false</BuildSuccessful>
+    <Item>
+      <Source>Models\baobabTree.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\baobabTree_0.xml</Output>
+      <Time>2012-05-24T11:30:49.908-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\baobabTreeMap.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\baobabTreeMap_0.xnb</Output>
+      <Time>2012-05-24T11:30:49.915-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\baobabTreeLeafMap.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\baobabTreeLeafMap_0.xnb</Output>
+      <Time>2012-05-24T11:30:49.91-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\bigRing.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\bigRing_0.xml</Output>
+      <Time>2012-05-31T10:12:47.588-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\ringMap.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\ringMap_0.xnb</Output>
+      <Time>2012-05-25T10:50:43.784-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\character.fbx</Source>
+      <Name>Models\character</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\character.xnb</Output>
+      <Time>2012-05-25T10:50:43.723-07:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\character_0.xml</Key>
+        <Value>2012-06-03T21:49:06.9778-07:00</Value>
+      </Dependency>
+      <Request>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\characterMap_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\character.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\character_0.xml</Output>
+      <Time>2012-05-25T10:50:43.723-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\characterMap.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\characterMap_0.xnb</Output>
+      <Time>2012-05-25T10:50:43.756-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\skyDome.fbx</Source>
+      <Name>Models\skyDome</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\skyDome.xnb</Output>
+      <Time>2012-05-25T10:50:43.795-07:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\skyDome_0.xml</Key>
+        <Value>2012-06-03T21:49:37.334-07:00</Value>
+      </Dependency>
+      <Request>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\cloudMap_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\skyDome.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\skyDome_0.xml</Output>
+      <Time>2012-05-25T10:50:43.795-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\cloudMap.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\cloudMap_0.xnb</Output>
+      <Time>2012-05-24T01:02:30.786-07:00</Time>
+    </Item>
+    <Item>
+      <Source>hudFont.spritefont</Source>
+      <Name>hudFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\hudFont.xnb</Output>
+      <Time>2012-06-04T00:27:26.6634-07:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <TargetProfile>HiDef</TargetProfile>

@@ -29,13 +29,14 @@ namespace _3DTestGame
             return
                 // This line is a hack to correct for the fact that the xna models use the Z axis for up and we use Y
                 Matrix.CreateRotationX(-MathHelper.PiOver2) *
+                this.transform * 
                 this.entity.WorldTransform;
         }
 
         public override void Update(GameTime gameTime)
         {
             this.entity.AngularVelocity = Vector3.Zero;
-            this.transform = transform * Matrix.CreateRotationX(MathHelper.PiOver2 / 60);
+            this.transform = this.transform * Matrix.CreateRotationY(-MathHelper.PiOver4 / 60);
             this.entity.AngularMomentum = Vector3.Zero;
             base.Update(gameTime);
         }
