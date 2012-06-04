@@ -75,7 +75,7 @@ namespace _3DTestGame
             }
             if (this.entity.Position.X < -100 || this.entity.Position.X > 100 ||
                     this.entity.Position.Z < -100 || this.entity.Position.Z > 100 ||
-                    this.entity.Position.Y < -5)
+                    this.entity.Position.Y < -10)
             {
                 this.entity.Position = new Vector3(0, 1, 0);
                 this.entity.LinearVelocity = Vector3.Zero;
