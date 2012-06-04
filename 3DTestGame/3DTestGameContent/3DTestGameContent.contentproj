@@ -97,37 +97,6 @@
       <Processor>ModelProcessor</Processor>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-<<<<<<< HEAD
-    <Compile Include="Models\baobabTree.fbx">
-      <Name>baobabTree</Name>
-=======
-    <Compile Include="Models\skyDome.fbx">
-      <Name>skyDome</Name>
->>>>>>> 62b0e572a8d37478ba4966f683a1a36584488ed7
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-<<<<<<< HEAD
-    <Compile Include="Models\character.fbx">
-      <Name>character</Name>
-=======
-    <Compile Include="Models\ring.fbx">
-      <Name>ring</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Models\bigRing.fbx">
-      <Name>bigRing</Name>
->>>>>>> 62b0e572a8d37478ba4966f683a1a36584488ed7
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-    </Compile>
-  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
