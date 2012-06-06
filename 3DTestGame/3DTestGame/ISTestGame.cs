@@ -111,6 +111,16 @@ namespace _3DTestGame
                 Components.Add(tree);
             }
 
+            // ferns
+            for (int i = 0; i < 5; i++)
+            {
+                Vector3 position = new Vector3(r.Next(-80, 80), 0, r.Next(-80, 80));
+                Console.WriteLine(position);
+                BasicModel tree = new BasicModel(this, Content.Load<Model>(@"Models/fern"), position, true);
+                StaticMesh treeMesh = GetTerrainMesh(tree, Matrix.CreateTranslation(position));
+                Components.Add(tree);
+            }
+
             ControllableModel cube = new ControllableModel(this, Content.Load<Model>(@"Models/character"),
                     new Box(new Vector3(0, 10, 0), 1, 1, 1, 2));
             space.Add(cube.entity);
