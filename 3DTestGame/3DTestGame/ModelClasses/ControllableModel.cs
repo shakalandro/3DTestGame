@@ -95,7 +95,8 @@ namespace _3DTestGame
             }
             else
             {
-                entity.LinearVelocity = Vector3.Divide(entity.LinearVelocity, 1.05f);
+                Vector3 temp = Vector3.Divide(entity.LinearVelocity, 1.05f);
+                entity.LinearVelocity = new Vector3(temp.X, entity.LinearVelocity.Y, temp.Z);
             }
             if (input.left3())
             {

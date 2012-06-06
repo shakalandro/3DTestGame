@@ -266,7 +266,16 @@ namespace _3DTestGame
             if(numRingsHit == totalRings) {
                 gameOver = true;
             }
-            
+
+            if (r.Next(5000) < 10)
+            {
+                CoinModel oneRing = new CoinModel(this, Content.Load<Model>(@"Models/bigRing"),
+                        new Box(new Vector3(r.Next(-80, 80), 30, r.Next(-80, 80)), 2, 6, 2, 1));
+                space.Add(oneRing.entity);
+                oneRing.entity.Tag = oneRing;
+                Components.Add(oneRing);
+                oneRing.entity.CollisionInformation.Events.InitialCollisionDetected += coinHit;
+            }
 
             base.Update(gameTime);
         }
