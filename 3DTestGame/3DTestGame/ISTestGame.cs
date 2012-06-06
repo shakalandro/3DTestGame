@@ -255,7 +255,7 @@ namespace _3DTestGame
 
 
             //check end game condition
-            gameOver = numRingsHit == RINGS_TO_WIN;
+            gameOver = numRingsHit >= RINGS_TO_WIN;
 
             if (r.Next(3000) < 10)
             {
