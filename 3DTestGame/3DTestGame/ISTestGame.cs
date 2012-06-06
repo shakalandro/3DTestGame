@@ -53,6 +53,7 @@ namespace _3DTestGame
         public int totalRings;
         public bool gameOver;
 
+
         public ISTestGame()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -125,7 +126,7 @@ namespace _3DTestGame
             // ferns
             for (int i = 0; i < 20; i++)
             {
-                Vector3 position = new Vector3((float)(r.NextDouble() * 160 - 80), -1, (float)(r.NextDouble() * 160 - 80));
+                Vector3 position = getSafeSpawn(0);
                 Console.WriteLine(position);
                 BasicModel tree = new BasicModel(this, Content.Load<Model>(@"Models/fern"), position, true);
                 StaticMesh treeMesh = GetTerrainMesh(tree, Matrix.CreateTranslation(position));
@@ -135,7 +136,7 @@ namespace _3DTestGame
             // palm trees
             for (int i = 0; i < 5; i++)
             {
-                Vector3 position = new Vector3(r.Next(-80, 80), 0, r.Next(-80, 80));
+                Vector3 position = getSafeSpawn(0);
                 Console.WriteLine(position);
                 BasicModel tree = new BasicModel(this, Content.Load<Model>(@"Models/palmTree"), position, true);
                 StaticMesh treeMesh = GetTerrainMesh(tree, Matrix.CreateTranslation(position));
@@ -154,21 +155,16 @@ namespace _3DTestGame
             BasicModel skyDome = new BasicModel(this, Content.Load<Model>(@"Models/skyDome"), skyDomeRotate, true);
 
             //adding rings
-            int numRings = 15;
-            for (int i = 0; i < numRings / 3; i++)
+            totalRings = 16;
+            for (int i = 0; i < totalRings; i++ )
             {
-                //zone 1
-                makeCoin(0,70,15,60);
-                //zone 2
-                makeCoin(-80,0,0,60);
-                //zone 3
-                makeCoin(-80,-25,-70,0);
+                makeCoin(getSafeSpawn(r.Next(25,35)));
             }
 
             // baobab trees
             for (int i = 0; i < 5; i++)
             {
-                Vector3 position = new Vector3(r.Next(-80, 80), 0, r.Next(-80, 80));
+                Vector3 position = getSafeSpawn(0);
                 BasicModel tree = new BasicModel(this, Content.Load<Model>(@"Models/baobabTree"),position,true);
                 Cylinder treeBox =  new Cylinder(position, 10,3, 1);
 
@@ -188,11 +184,24 @@ namespace _3DTestGame
             //GraphicsDevice.RasterizerState = rs;
         }
 
-        public void makeCoin(int x1 , int y1, int x2 , int y2)
+        public Vector3 getSafeSpawn(int spawnHeight)
+        {
+           int zoneNum = r.Next(0,3);
+           if(zoneNum == 0) { //zone 1
+               return new Vector3(r.Next(0, 70), spawnHeight, r.Next(15, 60));
+           }else if(zoneNum == 1) { // zone 2
+               return new Vector3(r.Next(-80, 0), spawnHeight, r.Next(0, 60));
+           }else { // zone 3
+               return new Vector3(r.Next(-80, -25), spawnHeight, r.Next(-70, 0));
+           }
+
+        }
+
+        public void makeCoin(Vector3 spawnVec)
         {
             totalRings++;
             CoinModel oneRing = new CoinModel(this, Content.Load<Model>(@"Models/bigRing"),
-            new Box(new Vector3(r.Next(x1, y1), 30, r.Next(x2, y2)), 2, 6, 2, 1));
+            new Box(spawnVec, 2, 6, 2, 1));
             space.Add(oneRing.entity);
             oneRing.entity.Tag = oneRing;
             Components.Add(oneRing);
@@ -259,19 +268,7 @@ namespace _3DTestGame
 
             if (r.Next(3000) < 10)
             {
-                int t = r.Next(3);
-                if (t == 0)
-                {
-                    makeCoin(0, 70, 15, 60);
-                }
-                else if (t == 1)
-                {
-                    makeCoin(-80, 0, 0, 60);
-                }
-                else
-                {
-                    makeCoin(-80, -25, -70, 0);
-                }
+                makeCoin(getSafeSpawn(r.Next(25, 35)));
             }
 
             base.Update(gameTime);

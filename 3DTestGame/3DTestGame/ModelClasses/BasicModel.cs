@@ -17,12 +17,21 @@ namespace _3DTestGame
         public Boolean textured;
         public Matrix transform;
         public Vector3 forward;
+        
 
         public ICamera camera
         {
             get
             {
                 return (ICamera)this.Game.Services.GetService(typeof(ICamera));
+            }
+        }
+
+        private IInput input
+        {
+            get
+            {
+                return (IInput)this.Game.Services.GetService(typeof(IInput));
             }
         }
 
@@ -41,6 +50,8 @@ namespace _3DTestGame
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+           
+
         }
 
         public override void Draw(GameTime gameTime)
@@ -51,13 +62,23 @@ namespace _3DTestGame
             {
                 foreach (BasicEffect be in mesh.Effects)
                 {
-                    /*
-                    be.LightingEnabled = true; // turn on the lighting subsystem.
-                    be.DirectionalLight0.DiffuseColor = new Vector3(3f, 1f, 1f); // a red light
-                    be.DirectionalLight0.Direction = new Vector3(1, 0, 0);  // coming along the x-axis
-                    be.DirectionalLight0.SpecularColor = new Vector3(1, 1, 3); // with green highlights
-                    */
-                    be.EnableDefaultLighting();
+                    if (camera.normalLight)
+                    {
+                        be.EnableDefaultLighting();
+                    }
+                    else
+                    {
+                        be.LightingEnabled = true; // turn on the lighting subsystem.
+                        be.DirectionalLight0.DiffuseColor = new Vector3(3f, 0f,0f); // a red light
+                        be.DirectionalLight0.Direction = new Vector3(1, 0, 0);  // coming along the x-axis
+                        be.DirectionalLight1.SpecularColor = new Vector3(0, 0, 3); // with green highlights
+                        be.DirectionalLight1.DiffuseColor = new Vector3(3f, 0f, 0f); // a red light
+                        be.DirectionalLight1.Direction = new Vector3(1, 0, 0);  // coming along the x-axis
+                        be.DirectionalLight2.SpecularColor = new Vector3(0, 0, 3);
+                        be.DirectionalLight2.DiffuseColor = new Vector3(3f, 0f, 0f); // a red light
+                        be.DirectionalLight2.Direction = new Vector3(1, 0, 0);  // coming along the x-axis
+                        
+                    }
                     be.Projection = camera.projection;
                     be.View = camera.view;
                     be.World = mesh.ParentBone.Transform * GetWorld();

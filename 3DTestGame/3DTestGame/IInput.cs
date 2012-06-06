@@ -30,5 +30,8 @@ namespace _3DTestGame
         Boolean right3();
 
         Boolean leftClick();
+
+        Boolean oneKey();
+        Boolean twoKey();
     }
 }
