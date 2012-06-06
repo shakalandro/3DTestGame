@@ -153,38 +153,30 @@ namespace _3DTestGame
             BasicModel skyDome = new BasicModel(this, Content.Load<Model>(@"Models/skyDome"), skyDomeRotate, true);
 
             //adding rings
-            totalRings = 20;
-            for (int i = 0; i < totalRings; i++ )
+            totalRings = 18;
+            for (int i = 0; i < totalRings/3; i++ )
             {
-                CoinModel oneRing = new CoinModel(this, Content.Load<Model>(@"Models/bigRing"),
-                    new Box(new Vector3(r.Next(-80, 80), 30, r.Next(-80, 80)), 2, 6, 2, 1));
-                space.Add(oneRing.entity);
-                oneRing.entity.Tag = oneRing;
-                Components.Add(oneRing);
-                oneRing.entity.CollisionInformation.Events.InitialCollisionDetected += coinHit;
+                //zone 1
+                makeCoin(0,70,15,60);
+                //zone 2
+                makeCoin(-80,0,0,60);
+                //zone 3
+                makeCoin(-80,-25,-70,0);
             }
 
             // baobab trees
-            /*
             for (int i = 0; i < 5; i++)
             {
                 Vector3 position = new Vector3(r.Next(-80, 80), 0, r.Next(-80, 80));
-                Console.WriteLine(position);
-                BasicModel tree = new BasicModel(this, Content.Load<Model>(@"Models/baobabTree"), position, true);
-                StaticMesh treeMesh = GetTerrainMesh(tree, Matrix.CreateTranslation(position));
-                space.Add(treeMesh); 
-                treeMesh.Tag = tree;
+                BasicModel tree = new BasicModel(this, Content.Load<Model>(@"Models/baobabTree"),position,true);
+                //(position,height,radius,scale)
+                Cylinder treeBox =  new Cylinder(position, 10,3, 1);
+
+                treeBox.Mass = float.PositiveInfinity;
+                space.Add(treeBox); 
+                treeBox.Tag = tree;
                 Components.Add(tree);
             }
-             * */
-
-            //test boabab tree
-            Vector3 testPosition = new Vector3(20, 0,20);
-            BasicModel testTree = new BasicModel(this, Content.Load<Model>(@"Models/cube"),testPosition, true);
-            StaticMesh mesh = GetTerrainMesh2(testTree, Matrix.Identity);
-            //space.Add(treeMesh);
-            mesh.Tag = testTree;
-            Components.Add(testTree);
             
             Components.Add(skyDome);
             Components.Add(terrain);
@@ -194,6 +186,16 @@ namespace _3DTestGame
             //RasterizerState rs = new RasterizerState();
             //rs.CullMode = CullMode.None;
             //GraphicsDevice.RasterizerState = rs;
+        }
+
+        public void makeCoin(int x1 , int y1, int x2 , int y2)
+        {
+            CoinModel oneRing = new CoinModel(this, Content.Load<Model>(@"Models/bigRing"),
+            new Box(new Vector3(r.Next(x1, y1), 30, r.Next(x2, y2)), 2, 6, 2, 1));
+            space.Add(oneRing.entity);
+            oneRing.entity.Tag = oneRing;
+            Components.Add(oneRing);
+            oneRing.entity.CollisionInformation.Events.InitialCollisionDetected += coinHit; 
         }
 
         // Returns a static mesh for the given model with the XNA/Blender rotation hack applied
@@ -208,17 +210,6 @@ namespace _3DTestGame
                 vertices[i] = Vector3.Transform(vertices[i], Matrix.CreateRotationX(-MathHelper.Pi / 2));
             }
             return new StaticMesh(vertices, indices, new AffineTransform(transform.Translation));
-        }
-
-        // Returns a static mesh for the given model with the XNA/Blender rotation hack applied
-        private StaticMesh GetTerrainMesh2(BasicModel t, Matrix transform)
-        {
-            Vector3[] vertices;
-            int[] indices;
-            TriangleMesh.GetVerticesAndIndicesFromModel(terrain.model, out vertices, out indices);
-            
-            return new StaticMesh(vertices, indices);
-
         }
 
         //Removes the coin from the game if it contacts the character 
@@ -285,7 +276,7 @@ namespace _3DTestGame
             hud.DrawString(hudFont, "3D Test Game by: Roy,Gabe,Sean", Vector2.Zero, Color.White);
 
 
-            hud.DrawString(hudFont, "Coins: " + numRingsHit, new Vector2(GraphicsDevice.Viewport.Bounds.Width - 100, 0), Color.White);
+            hud.DrawString(hudFont, "Coins: " + numRingsHit + "/" + totalRings, new Vector2(GraphicsDevice.Viewport.Bounds.Width - 130, 0), Color.White);
             hud.End();
 
             this.GraphicsDevice.BlendState = BlendState.Opaque;
