@@ -51,6 +51,12 @@ namespace _3DTestGame
             {
                 foreach (BasicEffect be in mesh.Effects)
                 {
+                    /*
+                    be.LightingEnabled = true; // turn on the lighting subsystem.
+                    be.DirectionalLight0.DiffuseColor = new Vector3(3f, 1f, 1f); // a red light
+                    be.DirectionalLight0.Direction = new Vector3(1, 0, 0);  // coming along the x-axis
+                    be.DirectionalLight0.SpecularColor = new Vector3(1, 1, 3); // with green highlights
+                    */
                     be.EnableDefaultLighting();
                     be.Projection = camera.projection;
                     be.View = camera.view;
