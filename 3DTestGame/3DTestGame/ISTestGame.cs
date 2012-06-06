@@ -153,7 +153,7 @@ namespace _3DTestGame
             BasicModel skyDome = new BasicModel(this, Content.Load<Model>(@"Models/skyDome"), skyDomeRotate, true);
 
             //adding rings
-            totalRings = 18;
+            totalRings = 16;
             for (int i = 0; i < totalRings/3; i++ )
             {
                 //zone 1
@@ -169,7 +169,6 @@ namespace _3DTestGame
             {
                 Vector3 position = new Vector3(r.Next(-80, 80), 0, r.Next(-80, 80));
                 BasicModel tree = new BasicModel(this, Content.Load<Model>(@"Models/baobabTree"),position,true);
-                //(position,height,radius,scale)
                 Cylinder treeBox =  new Cylinder(position, 10,3, 1);
 
                 treeBox.Mass = float.PositiveInfinity;
@@ -257,7 +256,23 @@ namespace _3DTestGame
             if(numRingsHit == totalRings) {
                 gameOver = true;
             }
-            
+
+            if (r.Next(3000) < 10)
+            {
+                int t = r.Next(3);
+                if (t == 0)
+                {
+                    makeCoin(0, 70, 15, 60);
+                }
+                else if (t == 1)
+                {
+                    makeCoin(-80, 0, 0, 60);
+                }
+                else
+                {
+                    makeCoin(-80, -25, -70, 0);
+                }
+            }
 
             base.Update(gameTime);
         }

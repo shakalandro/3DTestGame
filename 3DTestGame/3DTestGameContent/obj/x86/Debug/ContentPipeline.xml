@@ -47,11 +47,19 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
+<<<<<<< HEAD
       <Output>C:\Users\Malagos\Desktop\3DTestGame\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\terrain.xnb</Output>
       <Time>2012-06-05T20:29:56.356465-07:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\terrain_0.xml</Key>
         <Value>2012-06-05T20:30:09.8862389-07:00</Value>
+=======
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\terrain.xnb</Output>
+      <Time>2012-06-05T20:21:57.766-07:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\terrain_0.xml</Key>
+        <Value>2012-06-05T20:22:01.662-07:00</Value>
+>>>>>>> bc0e2f538ad4d0b84916aa7071292f51679023d8
       </Dependency>
       <Request>C:\Users\Malagos\Desktop\3DTestGame\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\terrainMap_0.xnb</Request>
     </Item>
@@ -118,11 +126,19 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
+<<<<<<< HEAD
       <Output>C:\Users\Malagos\Desktop\3DTestGame\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\fern.xnb</Output>
       <Time>2012-06-05T20:29:56.3454644-07:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\fern_0.xml</Key>
         <Value>2012-06-05T20:30:10.1662549-07:00</Value>
+=======
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\fern.xnb</Output>
+      <Time>2012-06-05T20:27:29.293-07:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\fern_0.xml</Key>
+        <Value>2012-06-05T20:27:33.586-07:00</Value>
+>>>>>>> bc0e2f538ad4d0b84916aa7071292f51679023d8
       </Dependency>
       <Request>C:\Users\Malagos\Desktop\3DTestGame\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\fernMap_0.xnb</Request>
     </Item>
@@ -227,7 +243,11 @@
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\terrain_0.xml</Output>
+<<<<<<< HEAD
       <Time>2012-06-05T20:29:56.356465-07:00</Time>
+=======
+      <Time>2012-06-05T20:21:57.766-07:00</Time>
+>>>>>>> bc0e2f538ad4d0b84916aa7071292f51679023d8
     </Item>
     <Item>
       <Source>Models\terrainMap.png</Source>
@@ -242,8 +262,13 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
+<<<<<<< HEAD
       <Output>C:\Users\Malagos\Desktop\3DTestGame\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\terrainMap_0.xnb</Output>
       <Time>2012-06-05T20:14:37.3839028-07:00</Time>
+=======
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\terrainMap_0.xnb</Output>
+      <Time>2012-06-05T20:19:25.031-07:00</Time>
+>>>>>>> bc0e2f538ad4d0b84916aa7071292f51679023d8
     </Item>
     <Item>
       <Source>Models\baobabTree.fbx</Source>
@@ -358,7 +383,11 @@
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\fern_0.xml</Output>
+<<<<<<< HEAD
       <Time>2012-06-05T20:29:56.3454644-07:00</Time>
+=======
+      <Time>2012-06-05T20:27:29.293-07:00</Time>
+>>>>>>> bc0e2f538ad4d0b84916aa7071292f51679023d8
     </Item>
     <Item>
       <Source>Models\fernMap.png</Source>
