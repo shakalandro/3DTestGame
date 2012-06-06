@@ -33,8 +33,15 @@ namespace _3DTestGame
         public Camera camera;
         public UserInput input;
 
+        //character space
         public Space space;
+
+        //doodad space
+        public Space space2;
+
         public BasicModel terrain;
+
+        public ControllableModel cube;
 
         public Water water;
         public Water waterfall;
@@ -42,6 +49,8 @@ namespace _3DTestGame
         public SpriteBatch hud;
         public SpriteFont hudFont;
         public int numRingsHit;
+        public int totalRings;
+        public bool gameOver;
 
         public ISTestGame()
         {
@@ -81,6 +90,8 @@ namespace _3DTestGame
 
             hud = new SpriteBatch(this.GraphicsDevice);
 
+            gameOver = false;
+
             base.Initialize();
         }
 
@@ -96,20 +107,19 @@ namespace _3DTestGame
 
             space = new Space();
             space.ForceUpdater.Gravity = new Vector3(0, -9.81f, 0);
+            //space2 = new Space();
+            //space2.ForceUpdater.Gravity = new Vector3(0, -9.81f, 0);
 
             terrain = new BasicModel(this, Content.Load<Model>(@"Models/terrain"), true);
             StaticMesh terrainMesh = GetTerrainMesh(terrain, Matrix.Identity);
+           
+            //terrainMesh.Material.StaticFriction = 0;
+            //terrainMesh.Material.KineticFriction = 1;
             space.Add(terrainMesh);
+            terrainMesh.Tag = terrain;
 
-            // baobab tree
-            for (int i = 0; i < 5; i++)
-            {
-                Vector3 position = new Vector3(r.Next(-80, 80), 0, r.Next(-80, 80));
-                Console.WriteLine(position);
-                BasicModel tree = new BasicModel(this, Content.Load<Model>(@"Models/baobabTree"), position, true);
-                StaticMesh treeMesh = GetTerrainMesh(tree, Matrix.CreateTranslation(position));
-                Components.Add(tree);
-            }
+            // StaticMesh terrainMesh2 = GetTerrainMesh(terrain, Matrix.Identity);
+            // space2.Add(terrainMesh2);
 
             // ferns
             for (int i = 0; i < 5; i++)
@@ -121,33 +131,60 @@ namespace _3DTestGame
                 Components.Add(tree);
             }
 
-            ControllableModel cube = new ControllableModel(this, Content.Load<Model>(@"Models/character"),
+            // palm trees
+            for (int i = 0; i < 5; i++)
+            {
+                Vector3 position = new Vector3(r.Next(-80, 80), 0, r.Next(-80, 80));
+                Console.WriteLine(position);
+                BasicModel tree = new BasicModel(this, Content.Load<Model>(@"Models/palmTree"), position, true);
+                StaticMesh treeMesh = GetTerrainMesh(tree, Matrix.CreateTranslation(position));
+                Components.Add(tree);
+            }
+
+            //adding character
+            cube = new ControllableModel(this, Content.Load<Model>(@"Models/character"),
                     new Box(new Vector3(0, 10, 0), 1, 1, 1, 2));
             space.Add(cube.entity);
+            cube.entity.Material.KineticFriction = 1;
+            cube.entity.Tag = cube;
 
             //Adding skydome
             Matrix skyDomeRotate = Matrix.CreateRotationX(MathHelper.Pi);
-
             BasicModel skyDome = new BasicModel(this, Content.Load<Model>(@"Models/skyDome"), skyDomeRotate, true);
 
             //adding rings
-            /*void HandleCollision(EntityCollidable sender, Collidable other, CollidablePairHandler pair) 
-            {
-                var otherEntityInformation = other as EntityCollidable;
-                if (otherEntityInformation != null)
-                {
-                    space.Remove(otherEntityInformation.Entity);
-                    Components.Remove((EntityModel)otherEntityInformation.Entity.Tag);
-                }
-            }
-            */
-            for (int i = 0; i < 20; i++ )
+            totalRings = 20;
+            for (int i = 0; i < totalRings; i++ )
             {
                 CoinModel oneRing = new CoinModel(this, Content.Load<Model>(@"Models/bigRing"),
-                    new Box(new Vector3(r.Next(-80, 80), 30, r.Next(-80, 80)), 1, 6, 1, 1));
+                    new Box(new Vector3(r.Next(-80, 80), 30, r.Next(-80, 80)), 2, 6, 2, 1));
                 space.Add(oneRing.entity);
+                oneRing.entity.Tag = oneRing;
                 Components.Add(oneRing);
+                oneRing.entity.CollisionInformation.Events.InitialCollisionDetected += coinHit;
             }
+
+            // baobab trees
+            /*
+            for (int i = 0; i < 5; i++)
+            {
+                Vector3 position = new Vector3(r.Next(-80, 80), 0, r.Next(-80, 80));
+                Console.WriteLine(position);
+                BasicModel tree = new BasicModel(this, Content.Load<Model>(@"Models/baobabTree"), position, true);
+                StaticMesh treeMesh = GetTerrainMesh(tree, Matrix.CreateTranslation(position));
+                space.Add(treeMesh); 
+                treeMesh.Tag = tree;
+                Components.Add(tree);
+            }
+             * */
+
+            //test boabab tree
+            Vector3 testPosition = new Vector3(20, 0,20);
+            BasicModel testTree = new BasicModel(this, Content.Load<Model>(@"Models/cube"),testPosition, true);
+            StaticMesh mesh = GetTerrainMesh2(testTree, Matrix.Identity);
+            //space.Add(treeMesh);
+            mesh.Tag = testTree;
+            Components.Add(testTree);
             
             Components.Add(skyDome);
             Components.Add(terrain);
@@ -173,6 +210,32 @@ namespace _3DTestGame
             return new StaticMesh(vertices, indices, new AffineTransform(transform.Translation));
         }
 
+        // Returns a static mesh for the given model with the XNA/Blender rotation hack applied
+        private StaticMesh GetTerrainMesh2(BasicModel t, Matrix transform)
+        {
+            Vector3[] vertices;
+            int[] indices;
+            TriangleMesh.GetVerticesAndIndicesFromModel(terrain.model, out vertices, out indices);
+            
+            return new StaticMesh(vertices, indices);
+
+        }
+
+        //Removes the coin from the game if it contacts the character 
+
+        //coin is sender , other is whatever hits it
+        public void coinHit(EntityCollidable sender, Collidable other, CollidablePairHandler pair) 
+        {
+            var otherEntityInformation = other as EntityCollidable;
+            if (otherEntityInformation != null && otherEntityInformation.Entity.Tag == cube)
+            {
+                Components.Remove((CoinModel)sender.Entity.Tag);
+                space.Remove(sender.Entity);
+                Console.WriteLine("removed ring");
+                numRingsHit++;
+            }
+        }
+
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload
         /// all content.
@@ -196,6 +259,14 @@ namespace _3DTestGame
            
             //Steps the simulation forward one time step.
             space.Update();
+            //space2.Update();
+
+
+            //check end game condition
+            if(numRingsHit == totalRings) {
+                gameOver = true;
+            }
+            
 
             base.Update(gameTime);
         }
@@ -212,6 +283,8 @@ namespace _3DTestGame
 
             hud.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.Default, RasterizerState.CullNone);
             hud.DrawString(hudFont, "3D Test Game by: Roy,Gabe,Sean", Vector2.Zero, Color.White);
+
+
             hud.DrawString(hudFont, "Coins: " + numRingsHit, new Vector2(GraphicsDevice.Viewport.Bounds.Width - 100, 0), Color.White);
             hud.End();
 

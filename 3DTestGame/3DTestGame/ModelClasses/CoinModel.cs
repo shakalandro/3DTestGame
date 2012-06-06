@@ -40,5 +40,7 @@ namespace _3DTestGame
             this.entity.AngularMomentum = Vector3.Zero;
             base.Update(gameTime);
         }
+
+       
     }
 }

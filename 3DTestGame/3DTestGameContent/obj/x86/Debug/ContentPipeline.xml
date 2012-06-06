@@ -11,7 +11,7 @@
       <Time>2012-05-03T19:53:44.093-07:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\cube_0.xml</Key>
-        <Value>2012-06-03T21:47:18.4086-07:00</Value>
+        <Value>2012-06-05T19:46:10.836-07:00</Value>
       </Dependency>
       <Request>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\CubeMap_0.xnb</Request>
     </Item>
@@ -25,7 +25,7 @@
       <Time>2012-05-09T02:23:25.79-07:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\fernCubeTexture_0.xml</Key>
-        <Value>2012-06-03T21:47:19.3386-07:00</Value>
+        <Value>2012-06-05T19:46:11.447-07:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -38,7 +38,7 @@
       <Time>2012-05-09T04:33:09.3805-07:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\cobra_0.xml</Key>
-        <Value>2012-06-03T21:47:19.4986-07:00</Value>
+        <Value>2012-06-05T19:46:11.612-07:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -51,9 +51,94 @@
       <Time>2012-05-25T10:50:43.816-07:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\terrain_0.xml</Key>
-        <Value>2012-06-03T21:47:20.4726-07:00</Value>
+        <Value>2012-06-05T19:46:12.433-07:00</Value>
       </Dependency>
       <Request>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\terrainMap_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\baobabTree.fbx</Source>
+      <Name>Models\baobabTree</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\baobabTree.xnb</Output>
+      <Time>2012-05-24T11:30:49.908-07:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\baobabTree_0.xml</Key>
+        <Value>2012-06-05T19:46:14.318-07:00</Value>
+      </Dependency>
+      <Request>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\baobabTreeMap_0.xnb</Request>
+      <Request>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\baobabTreeLeafMap_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\bigRing.fbx</Source>
+      <Name>Models\bigRing</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\bigRing.xnb</Output>
+      <Time>2012-05-31T10:12:47.588-07:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\bigRing_0.xml</Key>
+        <Value>2012-06-05T19:46:16.277-07:00</Value>
+      </Dependency>
+      <Request>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\ringMap_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\character.fbx</Source>
+      <Name>Models\character</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\character.xnb</Output>
+      <Time>2012-05-25T10:50:43.723-07:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\character_0.xml</Key>
+        <Value>2012-06-05T19:46:17.368-07:00</Value>
+      </Dependency>
+      <Request>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\characterMap_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\skyDome.fbx</Source>
+      <Name>Models\skyDome</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\skyDome.xnb</Output>
+      <Time>2012-05-25T10:50:43.795-07:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\skyDome_0.xml</Key>
+        <Value>2012-06-05T19:46:19.023-07:00</Value>
+      </Dependency>
+      <Request>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\cloudMap_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\fern.fbx</Source>
+      <Name>Models\fern</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\fern.xnb</Output>
+      <Time>2012-05-25T10:50:43.759-07:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\fern_0.xml</Key>
+        <Value>2012-06-05T19:46:19.517-07:00</Value>
+      </Dependency>
+      <Request>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\fernMap_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\palmTree.fbx</Source>
+      <Name>Models\palmTree</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\palmTree.xnb</Output>
+      <Time>2012-06-05T19:42:51.128-07:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\palmTree_0.xml</Key>
+        <Value>2012-06-05T19:46:20.477-07:00</Value>
+      </Dependency>
+      <Request>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\palmTreeMap_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\Heightmap2.bmp</Source>
@@ -90,6 +175,15 @@
       <Options>None</Options>
       <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Effects\PartialReflection.xnb</Output>
       <Time>2012-05-23T19:14:24.624-07:00</Time>
+    </Item>
+    <Item>
+      <Source>hudFont.spritefont</Source>
+      <Name>hudFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\hudFont.xnb</Output>
+      <Time>2012-06-04T00:27:26.6634-07:00</Time>
     </Item>
     <Item>
       <Source>Models\cube.fbx</Source>
@@ -150,35 +244,6 @@
       <Options>None</Options>
       <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\terrainMap_0.xnb</Output>
       <Time>2012-05-24T01:02:30.825-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\baobabTree.fbx</Source>
-      <Name>Models\baobabTree</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\baobabTree.xnb</Output>
-      <Time>2012-05-24T11:30:49.908-07:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\Models\baobabTree_0.xml</Key>
-        <Value>2012-06-03T21:48:40.5946-07:00</Value>
-      </Dependency>
-      <Request>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\baobabTreeMap_0.xnb</Request>
-      <Request>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\baobabTreeLeafMap_0.xnb</Request>
-    </Item>
-    <Item>
-      <Source>Models\bigRing.fbx</Source>
-      <Name>Models\bigRing</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\bigRing.xnb</Output>
-      <Time>2012-05-31T10:12:47.588-07:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\Models\bigRing_0.xml</Key>
-        <Value>2012-06-03T21:48:42.8004-07:00</Value>
-      </Dependency>
-      <Request>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\ringMap_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\baobabTree.fbx</Source>
@@ -244,20 +309,6 @@
     </Item>
     <Item>
       <Source>Models\character.fbx</Source>
-      <Name>Models\character</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\character.xnb</Output>
-      <Time>2012-05-25T10:50:43.723-07:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\Models\character_0.xml</Key>
-        <Value>2012-06-03T21:49:06.9778-07:00</Value>
-      </Dependency>
-      <Request>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\characterMap_0.xnb</Request>
-    </Item>
-    <Item>
-      <Source>Models\character.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\character_0.xml</Output>
@@ -278,20 +329,6 @@
       <Options>None</Options>
       <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\characterMap_0.xnb</Output>
       <Time>2012-05-25T10:50:43.756-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\skyDome.fbx</Source>
-      <Name>Models\skyDome</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\skyDome.xnb</Output>
-      <Time>2012-05-25T10:50:43.795-07:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\Models\skyDome_0.xml</Key>
-        <Value>2012-06-03T21:49:37.334-07:00</Value>
-      </Dependency>
-      <Request>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\cloudMap_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\skyDome.fbx</Source>
@@ -317,29 +354,6 @@
       <Time>2012-05-24T01:02:30.786-07:00</Time>
     </Item>
     <Item>
-      <Source>hudFont.spritefont</Source>
-      <Name>hudFont</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\hudFont.xnb</Output>
-      <Time>2012-06-04T00:27:26.6634-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\fern.fbx</Source>
-      <Name>Models\fern</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\fern.xnb</Output>
-      <Time>2012-05-25T10:50:43.759-07:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\Models\fern_0.xml</Key>
-        <Value>2012-06-05T19:34:21.289-07:00</Value>
-      </Dependency>
-      <Request>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\fernMap_0.xnb</Request>
-    </Item>
-    <Item>
       <Source>Models\fern.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
@@ -361,6 +375,29 @@
       <Options>None</Options>
       <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\fernMap_0.xnb</Output>
       <Time>2012-05-25T10:50:43.777-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\palmTree.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\palmTree_0.xml</Output>
+      <Time>2012-06-05T19:42:51.128-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\palmTreeMap.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\roy\Code\Projects\3DTestGame\3DTestGame\3DTestGame\bin\x86\Debug\Content\Models\palmTreeMap_0.xnb</Output>
+      <Time>2012-06-05T19:42:51.147-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

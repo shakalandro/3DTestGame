@@ -93,6 +93,10 @@ namespace _3DTestGame
             {
                 entity.LinearVelocity = Vector3.Add(entity.LinearVelocity, Vector3.Multiply(forward, DEFAULT_SPEED));
             }
+            else
+            {
+                entity.LinearVelocity = Vector3.Divide(entity.LinearVelocity, 1.05f);
+            }
             if (input.left3())
             {
                 this.forward = Vector3.Transform(this.forward, Matrix.CreateRotationY(ROTATION_SPEED));
