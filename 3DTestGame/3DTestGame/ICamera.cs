@@ -13,6 +13,7 @@ namespace _3DTestGame
         Vector3 pos { get; }
         Vector3 dir { get; }
         Vector3 up { get; }
+        bool normalLight { get; }
         float moveSpeed { get; }
         float rotateSpeed { get; }
         void fixate(EntityModel comp, float distance);

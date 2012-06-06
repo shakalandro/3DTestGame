@@ -40,8 +40,17 @@ namespace _3DTestGame
             mouseState = Mouse.GetState();
             keyState = Keyboard.GetState();
             base.Update(gameTime);
-        } 
+        }
 
+        public Boolean oneKey()
+        {
+            return keyState.IsKeyDown(Keys.D1);
+        }
+
+        public Boolean twoKey()
+        {
+            return keyState.IsKeyDown(Keys.D2);
+        }
 
         public Boolean up()
         {

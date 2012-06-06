@@ -30,6 +30,8 @@ namespace _3DTestGame
             }
         }
 
+        public bool normalLight{ get; protected set; }
+
         public UserInput input;
         private EntityModel fixation;
         private float fixationDistance;
@@ -45,6 +47,7 @@ namespace _3DTestGame
                 MathHelper.PiOver4, aspectRatio, 1, 700);
             CreateLookAt();
             this.input = ((ISTestGame)game).input;
+            this.normalLight = true;
         }
 
         private void CreateLookAt()
@@ -66,6 +69,7 @@ namespace _3DTestGame
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Update(GameTime gameTime)
+                
         {
             if (this.fixation != null)
             {
@@ -76,6 +80,14 @@ namespace _3DTestGame
                 updateFreeRoam(gameTime);
             }
             CreateLookAt();
+            if (input.oneKey())
+            {
+                normalLight = true;
+            }
+            if (input.twoKey())
+            {
+                normalLight = false;
+            }
             base.Update(gameTime);
         }
 
