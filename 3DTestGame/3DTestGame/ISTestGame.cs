@@ -27,6 +27,7 @@ namespace _3DTestGame
     {
         public static Random r = new Random();
         public readonly Boolean DEBUG = true;
+        public readonly int RINGS_TO_WIN = 20;
 
         public GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
@@ -122,9 +123,9 @@ namespace _3DTestGame
             // space2.Add(terrainMesh2);
 
             // ferns
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 20; i++)
             {
-                Vector3 position = new Vector3(r.Next(-80, 80), 0, r.Next(-80, 80));
+                Vector3 position = new Vector3((float)(r.NextDouble() * 160 - 80), -1, (float)(r.NextDouble() * 160 - 80));
                 Console.WriteLine(position);
                 BasicModel tree = new BasicModel(this, Content.Load<Model>(@"Models/fern"), position, true);
                 StaticMesh treeMesh = GetTerrainMesh(tree, Matrix.CreateTranslation(position));
@@ -153,8 +154,8 @@ namespace _3DTestGame
             BasicModel skyDome = new BasicModel(this, Content.Load<Model>(@"Models/skyDome"), skyDomeRotate, true);
 
             //adding rings
-            totalRings = 16;
-            for (int i = 0; i < totalRings/3; i++ )
+            int numRings = 15;
+            for (int i = 0; i < numRings / 3; i++)
             {
                 //zone 1
                 makeCoin(0,70,15,60);
@@ -189,6 +190,7 @@ namespace _3DTestGame
 
         public void makeCoin(int x1 , int y1, int x2 , int y2)
         {
+            totalRings++;
             CoinModel oneRing = new CoinModel(this, Content.Load<Model>(@"Models/bigRing"),
             new Box(new Vector3(r.Next(x1, y1), 30, r.Next(x2, y2)), 2, 6, 2, 1));
             space.Add(oneRing.entity);
@@ -253,9 +255,7 @@ namespace _3DTestGame
 
 
             //check end game condition
-            if(numRingsHit == totalRings) {
-                gameOver = true;
-            }
+            gameOver = numRingsHit == RINGS_TO_WIN;
 
             if (r.Next(3000) < 10)
             {
@@ -290,8 +290,12 @@ namespace _3DTestGame
             hud.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.Default, RasterizerState.CullNone);
             hud.DrawString(hudFont, "3D Test Game by: Roy,Gabe,Sean", Vector2.Zero, Color.White);
 
+            if (gameOver)
+            {
+                hud.DrawString(hudFont, "You Won! Congrats!!!", new Vector2(0, 100), Color.White);
+            }
 
-            hud.DrawString(hudFont, "Coins: " + numRingsHit + "/" + totalRings, new Vector2(GraphicsDevice.Viewport.Bounds.Width - 130, 0), Color.White);
+            hud.DrawString(hudFont, "Coins: " + numRingsHit + "/" + RINGS_TO_WIN, new Vector2(GraphicsDevice.Viewport.Bounds.Width - 130, 0), Color.White);
             hud.End();
 
             this.GraphicsDevice.BlendState = BlendState.Opaque;
