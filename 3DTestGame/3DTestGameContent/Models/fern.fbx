@@ -9,11 +9,11 @@ FBXHeaderExtension:  {
 	CreationTimeStamp:  {
 		Version: 1000
 		Year: 2012
-		Month: 05
-		Day: 25
-		Hour: 08
-		Minute: 57
-		Second: 58
+		Month: 06
+		Day: 05
+		Hour: 20
+		Minute: 24
+		Second: 45
 		Millisecond: 0
 	}
 	Creator: "FBX SDK/FBX Plugins build 20070228"
@@ -21,7 +21,7 @@ FBXHeaderExtension:  {
 		FlagPLE: 0
 	}
 }
-CreationTime: "2012-05-25 08:57:58:000"
+CreationTime: "2012-06-05 20:24:45:000"
 Creator: "Blender version 2.62 (sub 0)"
 
 ; Object definitions
@@ -63,8 +63,8 @@ Objects:  {
 			Property: "QuaternionInterpolate", "bool", "",0
 			Property: "Visibility", "Visibility", "A+",1
 			Property: "Lcl Translation", "Lcl Translation", "A+",-0.002131588757038,0.033119931817055,0.021758399903774
-			Property: "Lcl Rotation", "Lcl Rotation", "A+",12.493686407120993,-4.016152085735373,136.468067541250775
-			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.199419051408768,0.199418991804123,0.199419051408768
+			Property: "Lcl Rotation", "Lcl Rotation", "A+",12.493687260894639,-4.016156354603605,136.468067541250775
+			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.578308761119843,0.578308641910553,0.578308761119843
 			Property: "RotationOffset", "Vector3D", "",0,0,0
 			Property: "RotationPivot", "Vector3D", "",0,0,0
 			Property: "ScalingOffset", "Vector3D", "",0,0,0
@@ -862,7 +862,7 @@ Objects:  {
 		NbPoseNodes: 1
 		PoseNode:  {
 			Node: "Model::Cube_007"
-			Matrix: -0.144221886992455,0.137014344334602,0.013966866768897,0.000000000000000,-0.131908550858498,-0.143234342336655,0.043034784495831,0.000000000000000,0.039599627256393,0.021884618327022,0.194218650460243,0.000000000000000,-0.002131588757038,0.033119931817055,0.021758399903774,1.000000000000000
+			Matrix: -0.418238818645477,0.397337198257446,0.040503464639187,0.000000000000000,-0.382530540227890,-0.415374964475632,0.124799489974976,0.000000000000000,0.114837653934956,0.063464693725109,0.563227891921997,0.000000000000000,-0.002131588757038,0.033119931817055,0.021758399903774,1.000000000000000
 		}
 	}
 	GlobalSettings:  {
