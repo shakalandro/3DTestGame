@@ -121,6 +121,26 @@ namespace _3DTestGame
             // StaticMesh terrainMesh2 = GetTerrainMesh(terrain, Matrix.Identity);
             // space2.Add(terrainMesh2);
 
+            // ferns
+            for (int i = 0; i < 5; i++)
+            {
+                Vector3 position = new Vector3(r.Next(-80, 80), 0, r.Next(-80, 80));
+                Console.WriteLine(position);
+                BasicModel tree = new BasicModel(this, Content.Load<Model>(@"Models/fern"), position, true);
+                StaticMesh treeMesh = GetTerrainMesh(tree, Matrix.CreateTranslation(position));
+                Components.Add(tree);
+            }
+
+            // palm trees
+            for (int i = 0; i < 5; i++)
+            {
+                Vector3 position = new Vector3(r.Next(-80, 80), 0, r.Next(-80, 80));
+                Console.WriteLine(position);
+                BasicModel tree = new BasicModel(this, Content.Load<Model>(@"Models/palmTree"), position, true);
+                StaticMesh treeMesh = GetTerrainMesh(tree, Matrix.CreateTranslation(position));
+                Components.Add(tree);
+            }
+
             //adding character
             cube = new ControllableModel(this, Content.Load<Model>(@"Models/character"),
                     new Box(new Vector3(0, 10, 0), 1, 1, 1, 2));
