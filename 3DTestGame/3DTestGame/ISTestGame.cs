@@ -27,6 +27,7 @@ namespace _3DTestGame
     {
         public static Random r = new Random();
         public readonly Boolean DEBUG = true;
+        public readonly int RINGS_TO_WIN = 20;
 
         public GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
@@ -123,7 +124,7 @@ namespace _3DTestGame
             // space2.Add(terrainMesh2);
 
             // ferns
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 20; i++)
             {
                 Vector3 position = getSafeSpawn(0);
                 Console.WriteLine(position);
@@ -198,6 +199,7 @@ namespace _3DTestGame
 
         public void makeCoin(Vector3 spawnVec)
         {
+            totalRings++;
             CoinModel oneRing = new CoinModel(this, Content.Load<Model>(@"Models/bigRing"),
             new Box(spawnVec, 2, 6, 2, 1));
             space.Add(oneRing.entity);
@@ -262,9 +264,7 @@ namespace _3DTestGame
 
 
             //check end game condition
-            if(numRingsHit == totalRings) {
-                gameOver = true;
-            }
+            gameOver = numRingsHit == RINGS_TO_WIN;
 
             if (r.Next(3000) < 10)
             {
@@ -287,8 +287,12 @@ namespace _3DTestGame
             hud.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.Default, RasterizerState.CullNone);
             hud.DrawString(hudFont, "3D Test Game by: Roy,Gabe,Sean", Vector2.Zero, Color.White);
 
+            if (gameOver)
+            {
+                hud.DrawString(hudFont, "You Won! Congrats!!!", new Vector2(0, 100), Color.White);
+            }
 
-            hud.DrawString(hudFont, "Coins: " + numRingsHit + "/" + totalRings, new Vector2(GraphicsDevice.Viewport.Bounds.Width - 130, 0), Color.White);
+            hud.DrawString(hudFont, "Coins: " + numRingsHit + "/" + RINGS_TO_WIN, new Vector2(GraphicsDevice.Viewport.Bounds.Width - 130, 0), Color.White);
             hud.End();
 
             this.GraphicsDevice.BlendState = BlendState.Opaque;
